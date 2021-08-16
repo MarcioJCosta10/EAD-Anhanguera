@@ -1,0 +1,222 @@
+2) Análise e Modelagem de Sistemas
+Baseado no cenário proposto,
+elabore a modelagem inicial da atividade de Análise de Sistemas em ferramentas CASE de modelagem, 
+abrangendo a
+Modelagem de Processos de Negócio e a
+Engenharia de Requisitos do software.
+
+Considere que a solução deve abranger as funcionalidades
+para realização do cadastro da pessoa física que faz a denúncia,
+cadastro da localização (estado,cidade e bairro), 
+cadastro da denúncia e 
+consulta de acompanhamento do status da denúncia, no mínimo. 
+
+Seja criativo e complemente a sua solução com funcionalidades inovadoras! 
+
+A modelagem inicial da atividade de Análise de Sistemas deve contemplar a seguinte especificação
+referentes a:
+1. Modelagem de Processos de Negócio (Business Process Modeling):
+a) O Modelo de Processos de Negócio do tipo fluxo de trabalho; 
+b) A Documentação de todos os processos de negócio (primários, suporte e gerenciamento),
+descrevendo a Política de Negócio e o Procedimento Operacional Padrão (POP).
+
+2. Engenharia de Requisitos:
+c) Documentação (listagem, descrição e especificação) dos requisitos funcionais e não-funcionais.
+d) Diagrama de Use Cases, conforme a Unified Modeling Language (UML), correspondente aos
+requisitos funcionais
+
+
+O fluxo de atividades de uma solução para Denuncia seria assim:
+• cidadão comunica o fato ocorrido;
+. É identificado se a denuncia requer urgencia , se sim a viatura é acionada;
+. É Realizado o registro da pessoa que entra em contato, se a pessoa é recorrente busca-se os dados na base de dos, se não realiza novo registro;
+. É realizado o cadastro da região da denuncia, coletando o estado a cidade e o bairro;
+. É autorizado a denuncia no sistema;
+.É encaminhado a denuncia para o superior regional dar a certifcão da da denuncia, se for certificado a denuncia será registrada, se não volta para o regional certificar;
+.A denuncia é regitrada no sistema e é encaminhada para a regional efetuar o acionamento da viatura, se a denuncia for acionada pelo regional a viatura é acionada e a denucia é finalizada;
+. É realizado um acompanhamento se a denuncia foi atendida, se sim a denucia recebe o status de finalizada, se não volta para o acompanhamento;
+
+
+PROCESSOS PRIMARIOS - Para Brocke e Rosemann (2013), os processos primários estão vinculados ao core business (negócio principal) da organização, ou seja, possuemOs processos primários ajudam a traduzir a missão da organização e podemos caracterizar como exemplos a produção dos produtos, a entrega ao cliente, o marketing, entre outras atividades voltadas à agregação de valor ao cliente.
+Perceba que os processos primários são aqueles que podem iniciar e terminar fora da organização, pois estão diretamente relacionados com os clientes, ou seja, possuem vínculo com a entrega final (promessa realizada ao cliente).
+59
+vínculo com as atividades essenciais; são aqueles que agregam valor ao cliente final e, por consequência, os resultados deles demonstram o grau de satisfação do cliente.
+PROCESSO DE SUPORTE
+Ainda segundo Brocke e Rosemann (2013), os processos de suporte suportam as ações dos processos primários e de gerenciamento, isto é, apoiam os dois outros grupos de processos. Auxiliam os processos primários a realizarem as entregas que agregam valor ao cliente, mas não entregam valor diretamente para o cliente final. Em outras palavras, agregam valor ao processo e não ao cliente. Uma boa execução dos processos de suporte contribui para que os processos primários sejam realizados da melhor forma possível e gerem impacto positivo no cliente. Basicamente deve primeiramente ocorrer um alinhamento organizacional para que todos os colaboradores estejam “remando” para a mesma direção, e posteriormente terem desenhos claro dos processos primários, de suporte e de gerenciamento. É importante compreender que o último tem como papel a melhoria continuada.
+As áreas de recursos humanos, de tecnologia da informação, de contabilidade, de contas a pagar representam áreas de apoio aos processos primários, mas não estão diretamente conectados ao cliente final.
+
+O PORCESSO DE GERENCIAMENTO apresenta característica similar ao processo de suporte, pois funciona como um processo secundário. Ele é capaz de agregar valor ao processo primário e de suporte, entretanto, não agrega, diretamente, valor ao cliente final. Para Brocke e Rosemann (2013), o processo de gerenciamento está ligado ao monitoramento e controle das atividades organizacionais. Os processos de gerenciamento existem para que ocorra o acompanhamento dos resultados, consegue determinar se eles são satisfatórios ou não e, por consequência, determinam melhorias que indiretamente agregarão valor ao cliente, porém, por meio de melhoria nos processos e não em agregação de valor direta ao cliente. Tem como alvo fazer com que os objetivos organizacionais sejam atingidos. O monitoramento e
+
+VISÃO FUNCIONAL Para De Sordi (2018), a visão funcional da organização está ligada à sua estrutura hierárquica, e isto quer dizer que trata um modelo de visualização vertical. Dessa forma, os processos são vistos por departamento e cada um gerencia um recurso específico de sua área.
+A visão de processos ponta a ponta traz uma visão bastante ampla, pois trafega e visualiza a conexão entre todos os departamentos, isto é, em uma perspectiva horizontal. Envolve questões como tempo, custos, capacidade, qualidade, o que permite compreender a contribuição dada por cada parte para atender às necessidades do cliente. Permite uma visualização nos diferentes níveis e representa uma forma de agregar valor ao cliente.
+
+
+VISÃO PONTA A PONTA de processos ponta a ponta traz uma visão bastante ampla, pois trafega e visualiza a conexão entre todos os departamentos, isto é, em uma perspectiva horizontal. Envolve questões como tempo, custos, capacidade, qualidade, o que permite compreender a contribuição dada por cada parte para atender às necessidades do cliente. Permite uma visualização nos diferentes níveis e representa uma forma de agregar valor ao cliente.
+
+
+Sem medo de errar
+Caro aluno, a situação-problema desta seção traz o cenário da indústria de alimentos que possui 38 colaboradores, e você deverá ajudar a gestão da empresa bem como toda a sua equipe a desenvolver a visão de processos de negócio dentro da organização, além de determinar a classificação dos processos e sua visão funcional e de processos. Os 38 colaboradores estão distribuídos em 6 áreas organizacionais que se subdividem, portanto, aloque-os nas funções específicas de cada área de atuação, lembrando que a organização possui macroprocesso, processo e subprocesso.
+
+Para ajudar a gestora você deverá, ainda, apropriar-se dos demais conceitos expostos nesta seção e construir o cenário organizacional, determinando de forma detalhada todos os processos que existem neste negócio. Não se limite ao conteúdo; busque informações sobre o segmento que podem complementar seus estudo e decisões, bem como estabelecer a classificação de cada um deles.
+
+Como todo projeto, inicialmente vale realizar uma reunião com toda equipe para que ocorra um processo de conscientização sobre o seu papel e, ainda, sobre a importância do trabalho. Fora isso, você deverá navegar pela compreensão da relação entre os departamentos, portanto, levantará questionamentos como:
+•
+Quais são as áreas do negócio?
+–
+Administrativa (contas a pagar, contas a receber, faturamento, estoquista, compras, RH e gestor).
+–
+Comercial (gestor e consultores de vendas).
+65
+–
+Marketing (gestor e analistas).
+–
+Produção (gestor e operadores de produção).
+–
+Logística (gestor, 3 motoristas e 3 ajudantes)
+–
+TI (gestor e analistas).
+•
+Qual a estrutura hierárquica dessa organização?
+–
+Realizar a criação do organograma funcional da empresa, colocando no topo a gestora da empresa.
+•
+Quais os processos existentes na organização?
+–
+Cada área de negócio possui processos específicos, portanto, relatar a importância do mapeamento de cada um deles.
+–
+Determinar em que ponto cada processo inicia e termina.
+–
+Estabelecer o processo ponta a ponta de cada um deles, ou seja, descreva por quais áreas o processo passa.
+•
+Quais são os recursos necessários para que cada processo aconteça?
+–
+Quais máquinas e equipamentos são necessários.
+–
+Quais pessoas são necessárias.
+–
+Quais recursos financeiros são necessários.
+–
+Qual a infraestrutura necessária.
+•
+Como cada um desses processos é classificado?
+–
+Para cada processo será necessário determinar se é um processo primário, de suporte ou de gerenciamento.
+Lembre-se de que a determinação da classificação dos processos tem relação com agregação de valor para o cliente ou para outro processo.
+Para facilitar seu trabalho, você pode construir uma tabela que contenha cada um dos processos, relacionando-os com colunas que tratem, área de início, área (s) intermediária (s) e área final do processo, se agrega valor ao cliente ou não, e qual sua classificação. Dessa maneira conseguirá tabular de forma bastante organizada as informações desta empresa.
+Apresentar um organograma funcional da empresa, um descritivo detalhado de cada processo e uma tabela que contenha as informações indicadas anteriormente. Assim sendo, terá superado o desafio dos fundamentos de processos de negócio, estabelecendo compreensão sobre as áreas
+66
+de negócios, seus processos e a importância de estudá-las para o desenvolvimento da atividade de TI, e estará pronto para seguir em frente para mais um desafio!
+
+Para solucionar a problemática do e-commerce em questão será necessário, primeiro, ter a consciência que existe um processo principal que necessita de integração entre organizações (e-commerce e armazém parceiro). A partir desse elemento-chave você poderá estabelecer que o macroprocesso dessa organização pode ser definido em função de seu core business e desmembrado em processos e subprocessos, bem como sua estrutura funcional.
+67
+Posteriormente, você deverá detalhar o processo de venda para que possa compreender a complexidade e relações que ele gera, bem como determinar quais são os processos de suporte e de gerenciamento existentes nesta organização, e assim conseguirá realizar a classificação dos processos.
+Realizando esses passos, você conseguirá explorar todos os aspectos envolvidos aos fundamentos de processos de negócio e entenderá como atuar no mapeamento de processos de negócios.
+
+
+
+Figura 54
+Quadro de atividade 1
+Atividade 1 Comunicar fato ocorrido / Elaborar BO
+Objetivos: Registrar o Boletim de Ocorrência para fins futuros
+Autores: Cidadão/Funcionário responsável pelo atendimento
+Setor: Balcão
+Entrada: Dados da sequência ocorrida
+Saída: Boletim de Ocorrência elaborado
+Tempo
+aproximado:
+50 minutos
+
+Figura 65
+Quadro de atividade 2
+Atividade 2* Encaminhar BO para setor de protocolo
+Objetivos: Seguir o fluxo do BO
+Autores: Funcionário comprometido a executar essa função
+Setor: Setor balcão envia para setor protocolo
+Entrada: Boletins no aguardo do turno encerrar
+Saída: Boletins elaborados durante o turno
+Tempo
+aproximado:
+9 horas
+
+*Esta atividade somente deve ser executada após o término do turno do dia. Se diurno, após às
+18:00horas; se noturno (plantão), após às 09:00horas do dia seguinte; se no final de semana (sexta
+noturno, sábado e domingo), após às 09:00horas da segunda feira.
+Figura 76
+Quadro de atividade 3
+Atividade 3 Conferência dos BOS - Encaminhar BOs para delegado assinar
+Objetivos: Conferir se os BOs encontram-se em sequência – Validar BOs via assinatura
+Autores: Funcionário responsável pelo setor de protocolo – Delegado responsável pela
+equipe do turno
+Setor: Protocolo
+Entrada: Boletins elaborados durante o turno
+Saída: Boletins elaborados durante o turno conferidos
+Tempo
+aproximado:
+3 horas
+
+Revista Tecnológica da Fatec Americana, vol. 05, n. 01, out-2016/mar-2017. 44
+Figura 87
+Quadro de atividade 4
+Atividade 4* Colher assinatura do delegado responsável pela equipe
+Objetivos: Colher assinatura em todos os Boletins de Ocorrência
+Autores: Funcionário responsável pelo setor de protocolo – Delegado responsável pela
+equipe do turno
+Setor: Delegados
+Entrada: Boletins elaborados durante o turno conferidos
+Saída: Boletins elaborados assinados pelo delegado
+Tempo
+aproximado:
+10 horas
+
+*Gateway: Se delegado assinar segue o fluxo/Se não assinar BOS voltam para setor de protocolo
+para que posteriormente essa atividade seja refeita até serem assinados.
+Figura 98
+Quadro de atividade 5
+Atividade 5 Quando assinados, BOs são encaminhados ao setor de protocolo para futuro
+registro
+Objetivos: Registrar Boletins de Ocorrência em cartório
+Autores: Funcionário responsável pelo setor de protocolo
+Setor Setor dos delegados envia para setor de protocolo
+Entrada: Boletins assinados
+Saída: Boletins registrados em cartório
+Tempo
+aproximado:
+4 horas
+
+Figura 19
+Quadro de atividade 6
+Atividade 6 Encaminhar BOs registrados ao cartório central de cada equipe
+Objetivos: Distribuir BOs internos para cada cartório responsável
+Autores: Funcionário responsável pelo setor de protocolo
+Setor: Setor de protocolo envia para setor do cartório central
+Entrada: Boletins registrados
+Saída: Boletins distribuídos internamente
+Tempo
+aproximado:
+1 hora
+
+Figura 100
+Quadro de atividade 7
+ Fonte: Elaborado pelo autor
+Atividade 7* Colher despacho nos BOs
+Objetivos: Distinguir distribuição dos BOs via despacho
+Autores: Funcionário responsável pelo cartório central – Delegado
+Setor: Setor do cartório central envia para setor dos delegados
+Entrada: Boletins registrados em cartório
+Saída: Boletins despachados
+Tempo
+aproximado:
+10 horas
+
+*Gateway: Se delegado despachar, segue o fluxo/Se não despachar, BOs retornam ao cartório
+central para que posteriormente essa atividade seja refeita até que sejam despachados.
+Figura 111
+Quadro de atividade 8
+
+As atividades 4 e 7 representam o gargalo do processo (atividade que impede/restringe a performance
+do processo) e é notório que o tempo gasto em cada uma é desfavorável, pois há outras atividades que dependem
+da agilidade desse fluxo.
+Para estabelecer parâmetros e pontos de controle para a manutenção do fluxo e estabelecer uma nova
+meta, foi utilizado o conceito identificar gaps lógicos por Pavani Júnior e Scucuglia (2011) onde é possível
+identificar o gargalo de um processo através da modelagem do processo. A figura 22 demonstra o resultado
+obtido:

@@ -1,0 +1,25 @@
+algoritmo "CONTE E MOSTRE QUANTOS NUMEROS SÃO NEGATIVOS COM REPITA "
+
+var
+   N, C, Totn, S: Inteiro
+inicio
+      C <- 1
+      Totn <- 0
+      S<-0
+      Repita
+            Escreva("Digite um numero: ")
+            Leia (N)
+            Se (N<0) entao
+            Totn <- Totn + 1
+            Fimse
+            C <- C + 1
+            S<-S+N
+            
+      Ate (C>5)
+      Escreval(" A soma dos numeros é ", S)
+      Escreval(" Foram digitados " ,Totn, " valores negativos ")
+
+
+
+
+ fimalgoritmo

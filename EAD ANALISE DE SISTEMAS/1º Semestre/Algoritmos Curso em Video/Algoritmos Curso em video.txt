@@ -1,0 +1,612 @@
+Comandos:
+Escreva  é para escrever alguma coisa;
+Escreval é para escrever e saltar uma linha;
+Tudo entre aspas é mesagem;
+<- RECEBE UM VALOR;
+
+Var é a variável;
+var
+identificador: tipo
+
+Regra dos IDENTIFICADORES:
+1- Deve começar com uma LETRA;
+2- Os próximos podem ser letras ou números;
+3- NÂO pode utilizar nenhum SIMBOLO, exceto _;
+4- NÃO pode contrer ESPAÇOS em branco;
+5- NÃO pode conter letras com acentos;
+6- NÃO pode ser uma PALAVRA RESERVADA;
+
+Tipos PRIMITIVOS;
+Inteiro Guarda apenas numeros inteiros Ex: 1 3 -5 198 0 ;
+Real Guarda numeros reais Ex: 0.5 5.0 9.8 -77.3; 
+Caractere É uma mensagem que irá estar entre aspas " Marciano" " Algoritimo";
+Lógico Guarda apenas verdadeiro e falso;
+
+Conceito de ATRIBUIÇÃO:
+Var 
+msg: caractere
+msg <- "Olá Mundo"
+
+
+COMANDOS DE ENTRADA
+Leia  para escrever a variavel precisa estar entre parenteses();
+Exemplo:1 Algoritmo resolver soma
+
+algoritmo "ResolverSoma"
+var
+   N1, N2, S: Inteiro
+inicio
+Escreva("Informe um numero:")
+Leia (N)
+Escreva ("Informe outro numero:")
+Leia (N2)
+S <- N1 + N2
+Escreva ("A soma entre ", N1, " e ", N2, " é igual a: ", S)
+fimalgoritmo
+________________________________________________________
+Exemplo2: Média de um numero
+algoritmo "SomaNumeros"
+var
+N1, N2: Inteiro
+M: Real
+
+inicio
+Escreva ("Informe um numero:")
+Leia (N1)
+Escreva ("Informe outro numero:")
+Leia (N2)
+M <- (N1 + N2) /2
+Escreval (" A média entre", N1, " e ", N2, " é igual a: ", M)
+
+fimalgoritmo
+_____________________________________________________________
+
+OPERADORES ARITMÉTICOS
+A <- 5
+B <- 2
+
++ ADIÇÃO	                 A+B=7
+- SUBTRAÇÃO	                 A-B=3
+* MULTIPLICAÇÃO                  A*B=10
+/ DIVISÃO	                 A/B=2.5
+\ DIVISÃO INTEIRA                A\B=2
+^ EXPONENCIAÇÃO                  A^5=25
+% MODULO (é o resto da divisão)  A%B=1
+
+ORDEM DE PRECEDÊNCIA
+				( )  Parenteses
+				 ^   Exponenciação
+ARITIMETICA			 */  Multiplicação e Divisão
+				 +-  Adição e Subtração
+RELACIONAIS			TODOS DA ESQUERDA PARA DIREITA
+ 				E
+LÓGICOS				OU
+				NÃO
+_________________________________________________________
+FUNÇÕES ARITMETICA
+Abs             Valor Absoluto Abs(-10)     = 10
+Exp      	Exponenciação Exp (3,2)     = 9
+Int     	Valor inteiro Int (3.9)     = 3
+RaizQ    	Raiz Quadrada  RaizQ(25)    = 5 
+Pi       	Retorna Pi     Pi           = 3.14
+Sen      	Sen(rad)      Sen(0.523)    = 0.5
+Cos      	Cosseno (rad) Cos(0.523)    = 0.86
+Tan      	Tangente (rad)Tan(0.523)    = 0.57
+GraupRad 	Graus para Rad Grauprad(30) = 0.523
+
+
+__________________________________________________
+
+Exemplo3: 
+algoritmo "ValorAbsoluto"
+var
+A: Inteiro
+inicio
+A <- Abs (-50)
+Escreva (A)
+fimalgoritmo
+
+algoritmo "Exponenciação"
+var
+A: Real
+inicio
+A <- Exp (9,5)
+Escreva (A)
+fimalgoritmo 
+
+algoritmo "Exponenciação"
+var
+A: Real
+inicio
+A <- Sen(Grauprad (90))
+Escreva (A)
+fimalgoritmo
+
+algoritmo "Conversor"
+var
+Angulo, S: Real
+inicio
+Escreva("Informe um angulo:")
+Leia (Angulo)
+S<- Sen(GraupRad(angulo))
+Escreva(" Oseno de ",Angulo, " e igual a ", S)
+fimalgoritmo
+______________________________________
+
+OPERADORES RELACIONAIS
+
+>    MAIOR QUE
+<    MENOR QUE
+>=   MAIOR OU IGUAL A 
+<=   MENOR OU IGUAL A
+=    IGUAL A
+<>   DIFERENTE DE
+
+OPERADORES LÓGICOS
+E(AND) SÓ SERA VERDADE SE AS DUAS FOREM VERDADES, DEMAIS FALSO:
+0U(OR) SÓ SERÁ FALSO SE AMBOS FOREM FALSO, DEMAIS VERDADE;
+NÃO(NOT) INVERSÃO DOR RESULTADOS LÓGICOS
+AO UTILIZAR OS OPERADORES LÓGICOS SÓ PODE TESTAR VALORES LÓGICOS;
+TODAS OPERAÇÕES USANDO OS OPERADORES RELACIONAIS GERAM RESULTADO LÓGICOS;
+
+________________________________________________________________
+Exemplo4:
+algoritmo "triangulos"
+var
+   L1, L2, L3: Real
+   EQ, ES, TRI: Logico
+inicio
+      Escreva ("Digite o primeiro lado:")
+      Leia (L1)
+      Escreva ("Digite o segundo lado:")
+      Leia (L2)
+      Escreva ("Digite o terceiro lado:")
+      Leia (L3)
+      TRI<- (L1 < L2 + L3) E (L2< L1 + L3) E (L3 < L1 + L2)
+      EQ <- (L1 = L2) e (L2 = L3)
+      ES <- (L1<> L2) e (L2 <> L3) e (L1<>L3)
+      Escreval ("Pode formar um TRIANGULO? ", TRI)
+      Escreval (" O triangulo é Equilátero? " , EQ)
+      Escreval (" O tiangulo é Escaleno? ", ES)
+fimalgoritmo
+_______________________________________________
+VALORES FORMATADOS;
+Imprimir dados que contém tipo:
+
+__________________________________________
+
+OPERAÇÕS MATEMÁTICAS:
+
+_________________________________________
+Exercicio Idade Creuza:
+algoritmo "Idade Creuza 01"
+
+var
+   ano_atual, ano_nasc, idade: Inteiro
+inicio
+      Escreva("Em que ano nos estamos? ")
+      Leia(ano_atual)
+      Escreva("Em que ano eu nasci? ")
+      Leia(ano_nasc)
+      idade <- ano_atual - ano_nasc
+      Escreva("Minha idade sera", idade)
+fimalgoritmo
+
+__________________________________________
+
+algoritmo "Dolar Creuza 02"
+
+var
+   reais, dolares: real
+
+inicio	
+algoritmo "Converso temperatura Creuza 02"
+
+var
+   F, C: Real
+inicio
+      Escreva("Qual é a temperatura aqui?")
+      Leia (F)
+      C <- (F - 32)/1.8
+      Escreva ("No Brasil estaria " , C : 4:1)
+
+fimalgoritmo
+__________________________________________
+Conversor imposto:
+
+algoritmo "Conversor imposto Creuza 04"
+
+var
+       preco, imposto : real
+inicio
+      Escreva("Qual é o preço do produto? US$")
+      Leia (preco)
+      imposto <- (preco * 60)/100
+      Escreva("O imposto será de: ", imposto: 5:2)
+      
+fimalgoritmo
+___________________________________________________
+
+Pegando um emprestimo ela vai ter 20% de juros e vai parcelar
+
+
+_____________________________________________________
+
+ESTRUTURA CONDICIONAIS:
+Se eu tiver dinheiro então 
+vou fazer uma viagem para Disney
+
+No visualg existe tres delimitações:
+Comando 
+Expressão
+Ação
+
+Se (expressão) então
+Bloco
+Fimse
+
+Se (dinheiro >=10000) entao
+   Escreva ("Partiu Disney")
+
+Fimse
+
+CONDICIONAL SIMPLES = O nome dessa estrutra onde exite um bloco sendo executado caso uma expressão seja verdadeira;
+
+Aprimorando algoritmo idade
+__________________________________________________
+
+CONDICIONAL COMPOSTA 1 = Estrutura que tem o senao na sintaxe
+
+Se eu tiver dinheiro então 
+	vou fazer uma viagem para a Disney
+senão
+	vou ficar em casa
+
+Se (dinheiro >=10000) entao
+   Escreva ("Partiu Disney")
+Senao	
+   Escreva ("#Chateado")
+Fimse	
+	
+
+Fimse
+______________________________________________
+ESTRUTURA CONDICIONAL COMPOSTA 2
+Se eu tiver muito dinheiro entao 
+	vou fazer uma viagem para a Disney
+Senao 	Se tiver uma graninha entao
+	vou visitar minha ciadade natal
+Senao 
+	Vou ficar em casa
+_________________________________________
+
+Se (Situaçãio 1) entao
+	Bloco A
+Senao 
+	Se (situação 2) entao
+	Bloco B
+Senao
+	Bloco C
+
+FimSe
+FimSe
+____________________________________
+ESCOLHA CASO:
+
+Escolha (variavel)
+	Caso valor
+	  Bloco A
+	Caso Valor
+	  Bloco B
+	Caso Valor
+	  Bloco C
+	Outro Caso
+	  Bloco D
+Fim Escolha
+Exemplo:
+ 
+algoritmo "CRIANÇAESPERANÇA"
+
+var
+      D:           Inteiro
+      Valor:       Inteiro
+
+inicio
+      Escreval("------------------------------")
+      Escreval("      CRIANÇA ESPERANÇA       ")
+      Escreval("------------------------------")
+      Escreval(" Muito ObrIgado por ajudar!")
+      Escreval(" [1] para doar R$10 ")
+      Escreval(" [2] para doar R$20 ")
+      Escreval(" [3] para doar R$30 ")
+      Escreval(" [4] p ara doar R$40 ")
+      Escreval(" [5] para cancelar ")
+      Leia (D)
+      Escolha D
+              Caso 1
+              Valor <- 10
+              Caso 2
+              Valor <- 25
+              Caso 3
+              Valor <- 50
+              Caso 4
+              Escreva (" Qual o valor da doação? ")
+              Leia(Valor)
+              Caso 5
+              Valor <- 0
+           
+      FimEscolha
+      Escreval ("--------------------------")
+      Escreval(" SUA DOAÇÃO FOI DE ", Valor )
+      Escreval(" MUITO OBRIGADO!")
+      Escreval ("--------------------------")  
+
+
+
+fimalgoritmo  
+__________________________________________
+ESTRUTURA DE REPETIÇÃO 1
+Exemplo mão contando:	
+Algoritomo genérico para explicar:
+	mão <-0
+	Enquanto(Mão <=5) faça
+		troca
+		mão <- mão +1
+	Fimenquato
+________________________________________________
+SINTAXE COMANDO ENQUANTO:Enquanto uma expressão for verdadeira faça um bloco e fim enquanto(Então ao entrar no enquanto: a cada vez ele vai testar uma expressão, se está expressão for verdadeira ele executa um bloco, que pode ter quantos comandos quisermos, e ao atingir o fim enquanto ele volta para o camando enquanto) Isso é o LOOP 
+ 
+ Enquanto NÃO ARRUMAR o quarto faça
+	castigo
+ FimEnquanto
+ liberado
+______________________________________________	
+Enquanto EXPRESSÃO faça
+	bloco
+ Fimenquanto
+________________________________________________
+algoritmo "ConteAte10"
+var
+   contador: inteiro
+inicio
+      contador <- 0
+      Enquanto (contador <=10) faca
+               Escreval(contador)
+               contador <- contador +1
+      Fimenquanto
+      Escreval("Fim da Contagem")
+fimalgoritmo
+______________________________________________________
+Conte até 10
+algoritmo "ConteAte10"
+var
+   contador: inteiro
+inicio
+      contador <- 10
+      Enquanto (contador >=0) faca
+               Escreval(contador)
+               contador <- contador - 1
+      Fimenquanto
+      Escreval("Fim da Contagem")
+fimalgoritmo
+_______________________________________________
+algoritmo "ConteAtequanto"
+var
+   valor, contador: inteiro
+
+inicio
+      contador <- 0
+      Escreva("Quer contar até quanto? ")
+      Leia(valor)
+      Enquanto (contador <= valor) faca
+               Escreval(contador)
+               contador <- contador + 1
+      Fimenquanto
+      Escreval("Terminei de contar")
+fimalgoritmo 
+________________________________________
+algoritmo "ConteAtequanto + salto"
+var
+   valor, salto, contador: inteiro
+inicio
+      contador <- 0
+      Escreva("Quer contar até quanto? ")
+      Leia(valor)
+      Escreva("Qual será o valor do salto? ")
+      Leia(Salto)
+      Enquanto (contador <= valor) faca
+               Escreval(contador)
+               contador <- contador + salto
+      Fimenquanto
+      Escreval("Terminei de contar")
+fimalgoritmo 
+________________________________________
+algoritmo "SomadorNumerico"
+var
+   cont, N, S: inteiro
+inicio
+      cont <- 1
+      S <- 0
+      Enquanto (cont <= 5) faca
+      Escreva("Digite o", cont,  "o. valor : ")
+      Leia (N)
+      S <- S+ N
+       Cont <- Cont + 1
+      FimEnquanto
+      Escreval("A soma de todos os valores foi ", S)
+fimalgoritmo
+_____________________________________________
+Somador e mostrar o menor:
+algoritmo "SomadorNumerico"
+var
+   cont, N, S, Menor: inteiro
+inicio
+      cont <- 1
+      S <- 0
+      Enquanto (cont <= 5) faca
+      Escreva("Digite o", cont ,  "o. valor : ")
+      Leia (N)
+      	Se(N <> Menor ) entao
+            Menor <- N
+      	Fimse
+       S <- S+ N
+       Cont <- Cont + 1
+      FimEnquanto
+      Escreval("A soma de todos os valores foi ", S)
+      Escreval("O menor numero digitado foi", Menor)
+fimalgoritmo
+____________________________________________
+SOMADOR E MOSTRAR O MAIOR:
+algoritmo "SomadorNumerico"
+var
+   cont, N, S, Maior: inteiro
+inicio
+      cont <- 1
+      S <- 0
+      Enquanto (cont <= 5) faca
+      	Escreva("Digite o", cont,  "o. valor : ")
+      	Leia (N)
+      Se(N > Maior ) entao
+        Maior <- N
+      Fimse
+       S <- S+ N
+       Cont <- Cont + 1
+      FimEnquanto
+      Escreval("A soma de todos os valores foi ", S)
+      Escreval("O maior numero digitado foi", Maior)
+fimalgoritmo
+______________________________________________________
+CONVERSOR CONTANDO 4 VEZES
+algoritmo "conversorMoedas"
+var
+   R, D, C: real
+inicio
+      C <- 1
+      Enquanto (C<=4) faca
+            Escreva("Qual o valor em R$? ")
+            Leia(R)
+            D <- R / 5.5
+            Escreval ("O valor convertido em US$ e " , D:5:2)
+            C <- C+1
+      FimEnquanto   
+fimalgoritmo
+_____________________________________________
+CONVERSOR USUÁRO DECIDE CONVERTER
+algoritmo "conversorMoedas"
+
+var
+   C, Q: Inteiro
+   R, D: real
+inicio
+      C <- 1
+      Escreval("--------------------------------")
+      Escreval("     CONVERSOR DE MOEDAS        ")
+      Escreval("--------------------------------")
+
+      Escreva("Quantas vezes voce quer converter? ")
+      Leia(Q)
+      Enquanto (C<=Q) faca
+            Escreva("Qual o valor em R$? ")
+            Leia(R)
+            D <- R / 5.5
+            Escreval ("O valor convertido em US$ e " , D:5:2)
+            C <- C+1
+      FimEnquanto
+
+fimalgoritmo
+________________________________________________
+ESTRUTURA DE REPETIÇÃO REPITA:
+ algoritmo "Somador ESTRUTURA DE REPETIÇÃO REPITA parte 2"
+var
+   N, S : Inteiro
+   resp: Caractere
+inicio
+      S<- 0
+      Repita
+            Escreva ("Digite 0  o. valor ==> ")
+            Leia (N)
+            S <- S + N
+            Escreva("Você quer continuar ? [S/N] ")
+            Leia (resp)
+      Ate (resp = "N")
+      
+      Escreval ("A Soma de todo os valores digitados e ", S )
+fimalgoritmo
+
+________________________________________________
+RELEMBRANDO AS 2 ESTRUTURAS DE REPETIÇAO ANTERIORES: 
+ESTRUTURA ENQUANTO:
+	Enquato NÃO ARRUMAR O QUARTO faca
+		castigo
+	FimEnquanto
+liberado
+
+ESTRUTURA REPITA:
+	Repita
+		castigo
+	Ate ARRUMAR O QUARTO
+liberado
+
+Apenas lembrando temos uma inversão de estruturas lógicas que é o texo maiúsculo, na estrura do Enquanto nós usamos o operador lógico NÃO. 
+Esse operador lógico "NÃO" não se faz necessário no repita pois ele é a inversao lógica da estrutura utilizada no Enquanto.
+
+As duas estruturas vista até o momento utilizam expressõoes lógicas para verificar a continuidade ou não do laço de repetição;
+
+Exemplos:
+Na estrutura enquanto:
+	C<-1
+	Enquanto (C<=10) faca
+		Escreval(C)
+	c<c+1
+FimEnquanto
+------
+Na estrura repita:
+	C<-1
+	repita
+		Escreval(C)
+	C<-C+1
+	Até (C>10)
+
+Note ai que que os textos entre parentese ainda são as estruturas lógicas uma das outras, e outra coisa a se peceber é que a estrurura C<-C+1 sempre estão presente nas duas estruruas, e se ela não estiver entra em loop infinito pois a Variavel C nunca atingira o valor 10;
+As estruruas Enquanto e Repita:
+São complementare e servem para a mesma coisa;
+
+Em algumas situação devemos fazer contagens e em alguas situações é importante que eu saiba o inicio e o fim dessas contagens;
+Exemplos: contar até 10, verificar se o numero é primo, nós sabemos que vamos contar de um numero até o numero que nos colocamos, entao: Em alguns caso nós sabemos exatamente como as coisas vão acontecer para esses caso vamos ver a estrurua "Para";
+__________________________________________________
+ESTRUTURA DE REPETIÇÃO "PARA"
+Sintaxe:
+
+Para VARIAVEL <- INICIO ate FIM [passo SALTO] faca
+	Bloco
+FimPara
+
+Nesse caso o bloco será executado e no FimPara ocorrerá o retorno;
+Exemplo: Contar de 1 até 10:
+	Para C <- 1 ate 10 passo 1 faca
+		Escreval(C)
+	FimPara
+---------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

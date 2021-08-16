@@ -1,0 +1,8 @@
+Considerando a evolução histórica dos padrões de análise e desenvolvimento de sistemas:
+Descreva objetivamente:
+As principais características das análises:
+Estruturada:
+Essencial: 
+Orientada a Objetos:
+Indicando os pontos frágeis de cada uma:
+Que propiciaram a evolução até a Orientação a objetos.

@@ -1,0 +1,1222 @@
+Comandos SQL: repetindo para copiar os códigos:
+
+Palavra entre crase é uma palavra de definição e a crase quer dizer que se aceita caractere especial mas não é recomendado
+Show Databases; Exibe os bancos de dados;
+USE nome_do_banco; Usar banco de dados
+SHOW TABLES; No Promt de comando mostra quais são as tabelas.
+SELECT * FROM nome_tabela; selecione toda tabela
+DESCRIBE ou DESC nome_da_tabela; Descrever tabela.
+SHOW CREATE TABLE ou DATABASE; Exibe os comandos no usados para criar o banco ou a tabela;
+___________________________
+COMANDOS NO PROMT
+Show tables; No Promt de comando mostra quais são as tabelas.
+Status; No promt de comando exibe o banco de dados atual.
+Describe pessoas; No Promt de comandos descreve a tabela pessoas.
+______________________________________
+
+Parametros:
+No MySQL se chamam CONSTRAINTS (são separadas por espaço e não por virgulas) regras que definimos para criação de coisas no meu banco de dados);
+
+UNIQUE;  Não deixa cadastrar com o mesmo nome
+UNSIGNED;  Sem sinal; 
+DEFAUTL Character set utf8; Codificação caractere padrão.
+DEFAUTL Collate utf8_general_ci; Codificação coleção caractere padrão latino CASE INSENSITIVE.
+NOT NULL; Temos que prencher com os dados não aceita nulo.
+AUTO_INCREMENT; Criar campo que se auto incrementa(exemplo código unico).
+PRIMARY KEY (); Chave primaria
+SET ou ENUM ('M'e'F'); Deifnir os valores que serão aceitos
+DATA; Determinar data
+DECIMAL(5,2); (5 campos 2 depois da virgula) definir quantas casas tem o numero e quantos ficam depois da virgula
+VARCHAR DEFAULT Brasil; Texto variavel e se não for digitado por padrão será Brasil
+CHAR; Texto
+(`) A crase delimitando nomes é para dizer que podemos usar acentos e simbolos
+______________________________________________________________
+DEFINIÇÃO DOS COMANDOS SQL:
+CLASSIFICAÇÕES:
+
+DDL: DATA DEFINITION LANGUAGE - COMANDO DE DEFINIÇÃO CRIAR ALGO DA ESTRUTUTRA DO BANCO DE DADOS;
+CREATE DATA BASE;
+CREATE TABLE;  
+ALTER TABLE;
+DROP TABLE;
+TRUNCATE
+
+DML: DATA MANIPULATION LANGUAGE - COMANDO DE MANIPULAÇÃO DE DADOS;
+INSERT INTO;
+UPDATE;
+DELETE;
+
+DQL: DATA QUERY LANGUAGE -LINGUAGEM DE CONSULTA DE DADOS
+SELECT 
+SHOW
+HELP
+FROM
+WHERE
+
+DCL: DATA CONTROL LANGUAGE - LINGUAGEM DE CONTROLE DE DADOS
+GRANT
+REVOKE
+
+
+DTL: DATA TRANSACTION LANGUAGE - LINGUAGEM DE TRANSAÇÃO DE DADOS
+START TRANSACTION
+SAVE POINT
+COMMIT
+ROLLBACK
+RELEASE SAVEPOINT
+
+______________________________________________________________
+(Para criar o Banco de Dados nome cadastro e melhorar a estrutura com as constraint utf8:
+Create Database Cadastro; 
+default character set utf8
+default collate utf8_general_ci;
+_____________________________________________________________________
+Drop database Cadastro;( Apagar banco de dados nome cadastro)
+drop table cursos; apagar tabela curso
+If not exists (se não existir) 
+If exists ( se existir) 
+_____________________________________________________________________
+PARA VER OS TIPOS PRIMITIVOS TEM UM PRINT SALVO;
+_____________________________________________________________________
+(Criar Tabela e otimizar a estrutura da tabela)
+Use cadastro;
+create Table pessoas( 
+
+	Id int not null auto_increment, 
+	nome varchar(30) not null,
+	idade date,
+	sexo enum ('M','F'),
+	peso decimal (5,2),
+	altura decimal (3,2),
+	nacionalidade varchar (20) DEFAULT 'Brasil',
+ 	primary key (id)
+)default character set = utf8;
+
+_____________________________________________________________________
+INSERINDO DADOS NAS TABELAS:
+
+insert into pessoas (Id, nome, nascimento, sexo, peso, altura, nacionalidade)
+values  (DEFAULT'Claudio', '1975-04-22', 'M', '99.0', '2.15', 'Brasil'),
+	(DEFAULT'Pedro', '1983-12-07', 'M', '99.0', '1.80', 'Brasil'),
+	(DEFAULT'Janaina', '1987-11-12', 'F', '75.4', '1.66', 'EUA');
+***********************************************************************
+Se o campo for auto_increment podemos omitir a coluna por exemplo o campo id:
+insert into pessoas 
+	(nome, nascimento, sexo, peso, altura, nacionalidade)
+values
+	('Claudio', '1975-04-22', 'M', '99.0', '2.15', 'Brasil'),
+	('Pedro', '1983-12-07', 'M', '99.0', '1.80', 'Brasil'),
+	('Janaina', '1987-11-12', 'F', '75.4', '1.66', 'EUA');
+***********************************************************************
+Se a ordem de inserção dos dados são iguais posso omitir a linha identificadora da coluna:
+insert into pessoas values
+	(DEFAULT'Claudio', '1975-04-22', 'M', '99.0', '2.15', 'Brasil'),
+	(DEFAULT'Pedro', '1983-12-07', 'M', '99.0', '1.80', 'Brasil'),
+	(DEFAULT'Janaina', '1987-11-12', 'F', '75.4', '1.66', 'EUA');
+_________________________________________________________________________
+AUTO INCREMENTO:
+Para adicionar o auto incremento: Na criação do campo colocamos como auto_increment;
+
+Para visualiza o maior incremento na tabela: 
+	select max(COLUNA) as  from TABELA;
+
+Alterar o valor do auto incremento: 
+	alter table TABELA auto_increment = 90;
+______________________________________________________________________
+ALTERAR A ETRUTURA DA TABELA:
+(Alter Table = alterar tabela:)
+
+ADICIONAR COLUNA:
+	alter table pessoas add column profissao varchar(10);
+APAGAR COLUNA:
+	alter table pessoas drop column profissao;
+ADICIONAR A COLUNA EM OUTRA POSIÇÃO:
+	alter table pessoas add column profissao varchar(10) after name; 
+ou 
+	alter table pessoas add column profissao varchar(10) first; 
+
+MODIFICAR A COLUNA( Podemos mudar tipo primitivo e todas as constraint; 
+	 Alter table pessoas modify column profissao varchar(20) not null defautl'';
+
+RENOMEANDO A COLUNA
+	Alter table pessoas change column profissao prof varchar(20);
+__________________________________________________
+RENOMEAR A TABELA INTEIRA
+Sintaxe: 
+Rename table TABELA1 to TABELA2;
+Exemplo: 
+	rename table Clientes to Meus_Clientes;
+Exemplo:
+	rename table Cliente to Clientes;
+__________________________________________________________________
+
+COMANDO DELETE: excluir registros
+Sintaxe:
+	DELETE FROM tabela WHERE coluna = valor;
+
+Exemplo: 
+	delete from tbl_autores where ID_autor = 2;
+
+COMANDO TRUNCATE: exclui todos os dados da tabela
+Sintaxe:
+	TRUNCATE TABLE tabela;
+
+Exemplo:
+	truncate table tbl_teste_autoincrmento;
+__________________________________________________________________
+SQL ALIAS: Utilizado para se dar um nome diferente a tabela ou na coluna quando uma consulta é retornada
+	Sintaxe:
+		Select colunas AS alias_coluna FROM tabela aLias_tabela;
+
+Exemplo: 
+	select Nome_livro As Livro from tbl_livro;
+____________________________________________________________________
+ALTERANDO A ESTRUTURA DA TABELA CURSO;
+
+	create table if not exixts cursos(
+	nome varchar (30) not null unique,
+	descricao text,
+	carga int unsigned,
+	totalaulas int unsigned,
+	ano year default '2016'
+)	defautl charset= utf8;
+***********************************************
+ADICIONAR A CHAVE PRIMARIA:
+	alter table CUROS add column IDCURSO int first; 
+depois
+	alter table CURSOS add primary key (IDCURSO); 
+
+**************************************
+ADICIONAR CHAVE ESTRANGEIRA
+
+ALTER TABLE tb_vendas 
+	ADD FOREIGN KEY (FK_Produto_Venda)
+	REFERENCES tb_dadosprodutos(cdProduto);
+____________________________________________________________________
+ATUALIZAR REGISTROS: (Atenção sempre usar a cláusula WHERE para não atualizar toda a tabela)
+Sintexe:
+	UPDATE tabela SET coluna = novo_valor_armazenado WHERE coluna = valor_filtro;
+Exemplo: 
+	UPDATE tbl_livro SET Nome_Livro = 'SSH, o Shell Seguro' WHERE ID_Livro = 2;
+
+_______________________________________________________________________
+MANIPULANDO LINHAS:(Tabela Curso)
+Modificar a Linha 1 idcurso para o HTML5 onde o idcurso é 1:
+
+	update TABELA set COLUNA=REGISTRO where IDCURSO = '1' Limit 1; (Limitar quantidade de linha a ser modificada)	
+Exemplos:
+	update cursos set nome = 'HTML5' where idcusro = '1';
+
+Modificando dois registro de uma vez:
+	update cursos set nome = 'PHP', ano = '2015' where idcurso = '4';
+
+Limitar ação do comando para mudar somente uma linha;
+	update curso set nome = 'Java', carga = '40', ano = '2015' where idcurso = '5' limit 1;
+	
+(Por padrão o Workbench só permite você editar uma linha por vêz,
+se quiser desligar essa proteção vá em: edit/preferences/sqleditor/(desmarque a opção) safeupdates;
+_______________________________________________________________
+REMOVENDO LINHAS DE UMA TABELA
+	Delete from cursos -- Local da tabela
+	where ano ='2050'  -- Onde
+	limit 2;	   -- Limitação de quantidade
+___________________________________________________________________
+REMOVENDO TODAS AS LINHAS DE UMA TABELA:
+	truncate table nome_da_tabela;
+
+____________________________________________________
+GERAR CÓPIA DE SEGURANÇA MySQL(BACKUP) DUMP(SIGINIFICA CÓPIA)
+No workbanch ir em:
+Exportar/Server / Data export/ Selecionar os objetos / marcar se quer o dump com as estruturas e com os dados / escolher se quer exportar o folder inteiro ou arquivo unico export to self file/marcar a opção include create schema;
+Importar: Server/Data import/ Import from self contained file/Selecionar a minha pasta
+
+______________________________________
+PHP MYADMIN:
+Construir o banco de dados:
+New ou na pagina principal clica em base de dados:
+Colocar o nome e definir o collation e clicar em criar;
+Clica no nome do bd e já vai sugerir que deve criar as tabelas;
+Gerar (DUMP) no php myadmin:
+Clica na casinha e vai em exportar;
+
+_______________________________________________________
+COMANDO SELECT Utilizado pera realizar consultas:
+
+select COLUNA from TABELA;
+	SELECT*FROM CURSOS; -- Seleciona todos os dados.
+
+ORDENAR A SELEÇÃO ORDER BY:
+	select COLUNAS from tabela ORDER BY coluna_a_ordenar;
+
+Exemplo:
+	select * from curso order by nome; -- ordena os pela coluna e pelo nome
+	select * from curso order by nome desc; -- ordena pelo nome pela coluna de baixo para cima desc não é describe esse é descendente
+	select * from curso order by nome asc; -- ordena os cursos pela coluna de forma ascendente
+	select nome, carga, ano from curso order by nome; -- seleciona somente as colunas citadas = filtra coluna
+	select  profissao, nome, nascimento from gafanhotos order by nascimento, nome;-- filtrar coluna ordenar por nascimento e nome
+	select  ano, nome, descricao from cursos where ano = "2010" order by ano; -- Ordena por coluna e por linha
+	select nome, carga from cursos where ano = '2016'order by ano; -- ordena por coluna e linha
+	select nome, carga, descricao from cursos where ano <= '2013' order by ano;-- ordenar com outra condição(usar outro operador relacional <=
+	select nome, ano from cursos where ano between 2014 and  '2016' order by ano, nome; --Relacional (beteew and) Ordena entre 2014 e 2016
+ 	select nome, ano from cursos where ano in (2014, 2016, 2018) order by ano; --Relacional (in) Ordena somente os valores especifico
+	select * from cursos where carga > 35 and totaulas <30 order by ano; -- relacional e lógico - relaciona entre uma faixa especifica
+	select nome, carga, totaulas from cursos where carga > 35 or totaulas < 30 order by ano;--  relacional e lógico (or) relaciona entre uma faixa especifica e vai selecionar um ou outro)
+______________________________________
+OBTENDO DADOS DAS TABELAS COM O SELECT
+SELECIONAR POR NOME
+
+	select * from cursos where nome = php
+_____________________________
+CLAUSULA WHERE (FILTRA O CONJUNTO DE RESULTADOS)
+select COLUNAS from TABELAS where COLUNA = valor;
+
+	ex: SELECT Nome_Livro, Data_Pub FROM tbl_livro WHERE ID_Autor = 1;	
+    	    SELECT ID_Autor, Nome_Autor FROM tbl_Autores WHERE Sobrenome_Autor = 'Stanek';
+_________________________________________________________
+BETWEEN- Seleção de Intervalos (Está entre) 
+
+Sintaxe: select COLUNAS from TABELAS where COLUNA between valor1 AND valor2;
+Exemplo:
+	SELECT * FROM tbl_livro WHERE Data_Pub BETWEEN '20040517' AND '20110517';
+	SELECT Nome_Livro AS Livro, Preco_Livro AS Preço FROM tbl_Livro WHERE Preco_Livro BETWEEN 40.00 AND 60.00;
+
+_____________________________
+USANDO OPERADOR LIKE e NOT LIKE = Usado para procurar string dentro do Banco de dados:
+	% - qualque cadeia de caracteres de 0 ou mais
+	_ - Apenas qualquer caracteres unico
+
+Exemplo: 
+	select * from tbl_Livro where Nome_Livro LIKE 'F%'; -- Primeiro é f depois qualquer cadeia de caractere
+	select * from tbl_Livro NOT LIKE 'S%'; -- Não seja igual a primeira letra S e depois qualquer cadeia de caractere
+	select Nome_Livro from tbl_livro where Nome_Livro LIKE '_i%'; --Começe com um caractere qualquer, o segundo ter que ser o i, depois pode ser qualquer cadeia de caractere
+
+	select * from cursos where nome LIKE 'p%'; -- selecionar todos os cursos iniciado P
+						   -- like siginifica parecido
+						   -- % com Nennhum ou varior = caractere coringa
+	select * from cursos where nome LIKE '%p%'; --Localizar a letra P em qualquer lugar
+	select * from cursos where nome not LIKE '%a%'; -- not like em lugar nenhum
+	select * from cursos where nome like 'PH%P'; -- seleciona quem começa com PH e termina com P
+	select * from cursos where nome like 'PH%P%';-- pode ter nada ou alguma coisa no fim
+	select * from cursos where nome like 'PH%P%_';--termina com numero no fim
+	select * from cursos where nome like 'p_p%'; -- começa com p, tenha qualquer letra depois e depois tem outo p
+	select * from cursos where nome like 'p__t%'; -- todos que tem p, duas letras qualquer, t seguido de qualquer  coisa
+						      -- o sulblinhado obriga que tenha alguma letra;
+
+	Exemplo procurar pessoas com silva no nome em qualquer lugar;
+	select * from gafanhotos where nome like '%silva%';
+
+	Caso queira só com sobrenome silva:
+	select * from gafanhotos where nome like '%_silva%';
+__________________________________________
+USANDO O REGEXP - Usado para buscar padrões com Expressões regulares: é um complemento para o like e o notlike;
+
+Usamos os caracteres coringas:
+[...]  -- Qualque caracter unico ou no intervalo ou conjunto especificado ([a-h]; a ate h /[aeiou] apenas os registros que comecem com as vogais)
+[^...] -- Negação ([^a-h]; comece não com a ate h /[^aeiou] apenas os registros que não comecem com as vogais)
+^      -- Inicio da String - Se colocar na frente de um outro caractere significa que vamos buscar esse caractere no inicio da string (sempre fora do colchete)
+$      -- Fim da String - Quero procurar determido registro que termina com um caractere
+a|b|c  -- Alternação - quero encontrar um caractere que começa (ou com a ou com b ou com c) - Não pode ter espaço entre os caracteres e o pipe;
+
+Exemplos:
+	select Nome_Livro From tbl_Livro where Nome_Livro REGEXP '^[FS]'; -- buscando os caracteres F e S, iniciando com F ou S 
+	select Nome_Livro From tbl_Livro where Nome_Livro REGEXP '^[^FS]';-- buscando os cacteres que não seja FS 
+	select Nome_Livro From tbl_Livro where Nome_Livro REGEXP '[ng]$'; -- buscando os caractes que termine com n ou g
+	select Nome_Livro From tbl_Livro where Nome_Livro REGEXP '^[FS]|Mi';--buscando os que começa como F e S ou começa Mi;
+
+________________________________________
+USANDO VALOR PADRÃO - Cria um padrão no registro 
+	Sintaxe: Pode ser ao criar tabela ou depois de criada a tabela será confore abaixo:
+ 
+	Alter table nome_tabela modify column nome_coluna tipo_dados DEFAULT 'valor_padrão';
+
+Exemplo:
+	alter table tbl_autores modify column Sobrenome_Autor Varchar(60) Default 'da Silva';
+
+Inserindo regitro para teste:
+	insert into tbl_autores (ID_Autor,Nome_Autor) values (6,'João');
+
+
+PARA EXCLUIR O PADRÃO 
+	alter table tbl_autores modify column Sobrenome_Autor Varchar(60);
+____________________________________________________
+USANDO O GROU BY: Usado para agrupar registros em subgrupos baseado em colunas ou valores retornados por uma expressão:
+	Sintaxe: 
+	SELECT Colunas, função_agregação() FROM Tabela WHERE filtro GROUP BY Colunas;
+
+Exemplo: 
+--Consultas totalizando as vendas de todos os produtos por cidade;
+	select Cidade, SUM(Quantidade) AS Total from Vendas Group By Cidade;
+
+--Contar os registros por cidade
+	select Cidade, count(*) AS Total from Vendas group by Cidade;
+__________________________________________________________________________________
+USANDO A CLAUSULA HAVING (Tendo): Usada para filtar os registro do Group By;
+	Sintaxe: 
+	SELECT colunas, função_Agregação() FROM tabela WHERE filtro GROUP BY Colunas HAVING filtro_agrupamento
+
+Exemplo: -- Consulta retornando total de vendas das cidade com menos de 2500 produtos vendidos:
+	SELECT Cidade, SUM(Quantidade) AS Total FROM Vendas GROUP BY Cidade HAVING SUM(Quantidade)<2500;
+
+-- Consulta retornando total de vendas pro produto teclado das cidade com menos de 1500 teclados:
+	Select Cidade, SUM(Quantidade) AS Total FROM Vendas WHERE Produto ='Teclado' GROUP BY Cidade HAVING SUM(Quantidade)< 1500;
+__________________________________________________
+DISTINCT - DISTINGUIR COISAS: Ele faz: Qual foram minhas ocorrencias? quais foram diferentes(distintas)?
+
+ex:1
+Select distinct nacionalidades from gafanhotos order by nacionalidades;
+
+ex:2 Quais são as cargas horarias dos meus cursos;
+select distinct carga from cursos order by carga;
+______________________________________________
+FUNÇÃO DE AGREGAÇÃO: Permite executar expressões artimeticas nos valores de uma coluna em todos os registros de uma tabela;
+Sintaxe: 
+Função(ALL | DISTINCT expressão);
+
+Exemplos:
+Select count(*) from tbl_Autores;
+Select count(distinct id_autor) from tbl_livro;
+Select max(Preco_Livro) from tbl_livro;
+Select min(Preco_Livro) from tbl_livro;
+Select avg(Preco_Livro) from tbl_Livro;
+Select sum(Preco_Livro) from tbl_livro;
+
+COUNT(); CONTAR
+	select count(nome) from cursos;
+	select*from cursos; vou ver os cursos cadastrados.
+Eu quero saber quanto são os cursos cadastrados?
+	select count(*) from cursos;
+ex2:
+select * from cursos where carga > 40; vai me mostrar os cursos com carga acima de 40;
+Agora eu quero contar quantos cursos tem mais de 40 horas?
+select count(*)from cursos where carga > 40;
+
+MAX (); SELECIONAR O MAIOR
+MIN (); SELECIONA O MENOR
+SUM(); SOMAR
+AVG(); MÉDIA
+
+eX3:
+Qual é a maior carga entre os cursos?
+	select max(carga) from cursos;
+Qual foram os cursos de 2014?
+	select*from cursos where ano ='2014'; 
+Qual curso teve mais aulas em 2016?
+	select*from cursos where ano ='2016';
+	select max (totaulas) from cursos where ano ='2016'; 
+Qual curso teve MENOS aulas em 2016?
+	select*from cursos where ano ='2016';
+	select min(totaulas) from cursos where ano ='2016'; 
+	select*from cursos where ano ='2016'; 
+	select sum(totaulas)from cursos where ano ='2016';
+	select*from cursos where ano ='2016'; 
+	select AVG(totaulas) from cursos where ano ='2016'; 
+___________________________________________
+OPERADORES LÓCIGOS: AND OR NOT
+Exemplo:
+	select * from tbl_livro where ID_Livro > 2 AND ID_Autor < 3;
+	select * from tbl_livro where ID_Livro > 2 OR ID_Autor < 3;
+	select * from tbl_livro where ID_Livro > 2 AND NOT ID_Autor < 3;
+___________________________________
+OBTER DADOS DAS TABELAS AGRUPANDO
+Vamos aos exemplos: 
+DISTINGUINDO:
+	SELECT DISTINCT carga FROM cursos ORDER BY carga;
+AGRUPANDO
+	SELECT carga FROM cursos GROUP BY carga; (GROUP BY agrupado por)
+AGRUPANDO E AGREGANDO
+	SELEC carga, count(nome) FROM cursos GROUP BY carga; 
+MOSTRAR TOTAL DE AULAS:
+	SELECT totaulas from cursos order by totaulas;
+DISTINGUINDO:
+	SELECT distinct totaulas from cursos order by  totaulas;
+AGRUPAR:
+	SELECT totaulas from cursos group by totaulas;
+TOTALIZA-LOS
+	SELECT totaulas, count(*) from cursos group by totaulas;
+PROVA REAL 
+	select * from cursos where totaulas = '30';
+	select * from cursos where totaulas = '12';
+AGRUPAR SOMENTE OS CURSOS COM 30 AULAS
+	select * from cursos where totaulas > '30';
+AGRUPAR SOMENTE OS CURSOS COM 30 AULAS
+	select carga, totaulas from cursos where totaulas > '30' group by carga;
+AGRUPAR e SOMAR OS CURSOS COM 30 AULAS
+	select carga, COUNT(nome) from cursos where totaulas > '30' group by carga;
+SELECIONAR QUEM EU QUERO AGRUPAR
+	SELECT carga, COUNT(nome) FROM cursos GROUP BY carga HAVING COUNT(nome)>3;
+ex:
+Select ano, count(*) from cursos group by ano order by count(*)desc;
+
+AGRUPAR QUEM TEM ESSE CONTADOR ACIMA DE 5;
+ Select ano, count(*) from cursos group by ano having count(ano)>=5 order by count(*)desc;
+
+ex:
+select ano, count(*) from cursos where totaulas >30 group by ano>2013 having ano>2013 order by count(*)desc;
+
+ex:
+select avg(carga) from cursos;
+select carga, count(*) from cursos where ano>2015 group by carga having carga> (select avg(carga) from cursos);
+
+________________________________
+MODELO RELACIONAL
+________________________________
+**JOIN  JUNTANDO RELAÇÕES**
+	INNER JOIN FAZ A JUNÇÃO DOS REGISTROS QUE TEM RELAÇÕES
+Sempre que usar o JOIN preciso usar o ON;
+No JOIN Digo quais tabelas vou relacionar com qual e uso o ON para ligar a chave primaria com a chaves estrageiras delas;
+
+Select nome, ano from cursos;
+
+SELECT gafanhotos.nome, cursos.nome, cursos.ano FROM gafanhotos JOIN cursos ON cursos.idcurso = gafanhotos.cursopreferido ORDER BY gafanhotos.nome;
+
+--APELIDOS DAS COLUNAS POSSO USAR O 'AS'( cursos.idcurso AS c) 
+SELECT g.nome, c.nome, c.ano FROM gafanhotos AS g JOIN cursos AS c ON c.idcurso = g.cursopreferido ORDER BY g.nome;
+
+SE EU QUISER MOSTRAR TODOS OS GAFANHOTOS INCLUSIVE OS QUE NÃO PREFERERM NADA:(Utilizo o Alter Join) 
+Posso escolher o lado ou gafanhotos ou cursos 
+LEFT ALTER JOIN preferencia a esquerda do JOIN, vai aparecer dando preferencia a tabela da esquerda;
+RIGHT ALTER JOIN vou mostrar dando preferencia a direita do JOIN;
+
+ex:
+SELECT g.nome, c.nome, c.ano FROM gafanhotos AS g LEFT OUTER JOIN cursos AS c ON c.idcurso = g.cursopreferido;
+
+SELECT g.nome, c.nome, c.ano FROM gafanhotos AS g  RIGHT OUTER JOIN cursos AS c ON c.idcurso = g.cursopreferido;
+______________________________________________________________
+criando tabela extra para relacioamento
+ 	create table gafanhoto_assiste_curso(
+	id int not null auto_increment, 
+	Data date,
+	idgafanhoto int,
+	idcurso int,
+	primary key(id),
+	Foreign key (idgafanhoto) references gafanhotos (id),
+	foreign key (idcurso) references cursos(idcurso)
+	) default charset = utf8;
+__________________________________________________
+
+INSERINDO OS REGISTRO DOS RELACIONAMENTOS
+ 	insert into gafanhoto_assiste_curso values (default,'2014-03-01','1','2');
+	select *from gafanhoto_assiste_curso; exibir
+Agora eu tenho um relacionamento entre duas tabelas com uma no meio e essa do meio quando faço select * from só aparece numeros quero fazer a junção das tres tabelas e aparecer os nomes:
+USO O INNER JOIN:
+**********************************
+INNER JOIN: Retorna linhas que houver pelo menos uma correspondecia em ambas tabelas
+Sintaxe: 
+	SELECT colunas FROM tabela1 INNER JOIN tabela 2	ON tabela1.coluna = tabela2.coluna;
+Exemplo:
+	SELECT * FROM tbl_Livro INNER JOIN tbl_Autores ON tbl_Livro.ID_Autor = tbl_Autores.ID_Autor;
+	SELECT tbl_Livro.Nome_Livro, tbl_Livro.ISBN, tbl_autores.Nome_Autor FROM tbl_Livro INNER JOIN tbl_Autores ON tbl_Livro.ID_Autor = tbl_autores.ID_Autor;
+-- Usando ALIAS
+	SELECT L.Nome_Livro AS Livros, E.Nome_editora AS Editoras FROM tbl_Livro AS L INNER JOIN tbl_editoras AS E ON L.ID_editora = E.ID_editora
+	WHERE E.Nome_Editora LIKE 'M%'; -- Nesse caso o ALIAS foi criado no from e no inner join e tbm criado um ALIAS para as colunas
+-- Três tabelas
+	SELECT L.Nome_Livro AS Livro, A.Nome_autor AS Autor, E.Nome_Editora AS Editora FROM tbl_Livros AS L INNER JOIN tbl_Autores AS A on L.ID_autor = A.ID_autor INNER JOIN tbl_editoras AS E on L.ID_editora = E.ID_editora;
+
+______________________________________________________________________________
+OUTER JOINS: Permite retornar dados de uma ou mais tabelas mesmo quando não há correspondência entre as tabelas(correspondencia das linhas);
+LEFT JOIN: Retorna todas as linhas da tabela a esquerda, mesmo se não houver correspondecia na tabela à direita
+RIGHT JOIN: Retorna todas as linas da tabela a direita, mesmo se não houver correspondencia na tabela à esquerda
+FULL JOIN: Retornar linhas quando houver correspondencia em qualquer uma das tabelas(se exite em uma tabela ele vai ser retornado ou vice versa)
+
+LEFT JOIN:
+Sintaxe: 
+	SELECT coluna FROM tab_Esquerda LEFT (OUTER) JOIN tab_Direita ON tab_Esq.Coluna = tab_Dir.Coluna;
+Exemplo: 
+	SELECT * FROM tbl_autores LEFT JOIN tbl_Livro ON tbl_Livro.ID_Autor = tbl_Autores.ID_Autor;
+
+EXCLUINDO CORRESPONDENCIA COM LEFT JOIN 
+	Sintaxe: 
+	SELECT coluna FROM tab_Esquerda LEFT (OUTER) JOIN tab_Direita ON tab_Esq.Coluna = tab_Dir.Coluna WHERE tab_Dir.Coluna IS NULL;
+Exemplo: 
+	SELECT * FROM tbl_autores LEFT JOIN tbl_Livro ON tbl_Livro.ID_Autor = tbl_Autores.ID_Autor WHERE tbl_Livro.ID_Autor IS NULL;
+
+RIGHT JOIN
+Sintaxe: 
+	SELECT coluna FROM tab_Esquerda RIGHT (OUTER) JOIN tab_Direita ON tab_Esq.Coluna = tab_Dir.Coluna; 
+Exemplo:	
+	SELECT * FROM tbl_Livro AS Li RIGHT JOIN tbl_editoras AS Ed ON Li.ID_editora = Ed.ID_editora;
+EXCLUINDO CORRESPONDENCIA COM RIGTH JOIN:
+	SELECT * FROM tbl_Livro AS Li RIGHT JOIN tbl_editoras AS Ed ON Li.ID_editora = Ed.ID_editora WHERE Li.ID_editora IS NULL;
+Peguei os dados da esquerda onde está o codigo do curso;
+	SELECT g.nome,  idcurso FROM gafanhotos g JOIN gafanhoto_assiste_curso a ON g.id = a.idgafanhoto ORDER BY g.nome;
+
+Pegar o nome do curso que esta na outra tabela a direita:
+	SELECT  g.nome, c.nome, a.idcurso FROM gafanhotos g JOIN gafanhoto_assiste_curso a ON g.id = a.idgafanhoto JOIN cursos c ON c.idcurso = 	a.idcurso ORDER BY g.nome;
+	AGORA JUNTEI AS TRES TABELAS
+______________________________________________________
+
+CRIANDO INDICES 
+Sintaxe:
+
+Create [unique] INDEX nome_indice ON nome_tabela(
+coluna1[ASC|DESC],
+[coluna2 [ASC|DESC]]...
+);
+
+
+ADICIONAR INDICE A UMA TABELA JÁ EXIXTENTE
+
+Alter table NOME DA TABELA add index nome_indice (colunas);
+
+EXIBIR TODOS OS INDICES:
+
+show index from TABELA;
+
+EXCLUIR INDIDE DA COLUNA:
+		
+drop index idx_editora ON tbl_editoras;
+           (nome indice)  (nome tabela)
+--
+TRAZENDO UMA EXPLICAÇÃO SOBRE A EXECUÇÃO DO COMANDO:(o SQL traz a informação sobre custo da transação onde nesse caso ele
+teve que ler 4 linhas para realizar o comando;
+
+EXPLAIN SELECT * FROM tbl_editora WHERE NomeEditora = 'Springer';
+
+Será que conseguimos melhorar esse custo? Sim aplicando um indice nessa tabela;
+--
+
+_____________________________________________
+VIEW - (Visão - VIEWS)É uma tabela virtual baseada no conjunto de resultados de uma consulta
+
+Sintaxe Criação: 
+	Create VIEW [Nome_Exibição]
+	AS SELECT colunas 
+	FROM tabela
+	WHERE condições;
+
+Exemplo Criação de uma View:
+
+CREATE VIEW vw_LivrosAutores 
+As SELECT tbl_Livro.Nome_Livro AS Livro, tbl_Autores.Nome_Autor AS Autor
+FROM tbl_Livro INNER JOIN tbl_autores 
+ON tbl_Livro.ID_Autor = tbl_Autores.ID_Autor;
+
+COMO USAR UMA VIEW:
+Exemplo: 
+SELECT Livro, Autor
+FROM vw_LivrosAutores
+ORDER BY autor;
+
+COMO ALTERAR UMA VIEW:
+
+ALTER VIEW vw_LivrosAutores AS 
+SELECT tbl_Livro.Nome_Livro AS Livro, tbl_Autores.Nome_Autor AS Autor, Preco_Livro AS Valor
+FROM tbl_Livro INNER JOIN tbl_autores 
+ON tbl_Livro.ID_Autor = tbl_Autores.ID_Autor;
+
+Depois para ver:
+select * from vw_LivrosAutores;
+
+Para Usar:
+select Livro, Autor
+from vw_LivrosAutores
+order by valor;
+
+PARA EXCLUIR UMA VIEW:
+
+DROP VIEW vw_LivrosAutores;
+
+_________________________________________________________________________
+CONCATENAÇÃO DE STRINGS: É possível concatenar strings usando-se a função CONCAT().
+
+Sintaxe: 
+	CONCAT(string | nome_coluna, <string | nome_coluna)
+
+exemplo com palavras soutas:
+	select concat( 'Creuza', 'dos Reis' AS 'é o nome dela' );
+exemlo com conteudo das tabelas:
+	select concat(Nome_autor, '', Sobrenome_autor) AS 'Nome Completo' FROM tbl_autores;
+	select concat ('Eu gosto do Livro' Nome_Livro) from tbl_Livro where ID_autor = 2;
+
+TESTES COM NULOS
+
+	 -- Se uma string for concatenada com NULL, o resultado 
+	 -- retornado será apenas NULL:
+ 
+ 	select concat('A quantidade adquirida é ',' ', quantidade) from teste_nulos where item = 'Teclado';  -- essa consulta não traz nada e isso
+é um grande problema se estivermos lendo um banco para trazer dados para um formulário SE TIVER UM NULO NO MEIO ELE NÃO TRAZ NADA PARA A APLICAÇÃO;
+
+PARA EVITAR ESSE PROBLEMA TEMOS AS FUNÇÕES: IFNULL E COALESCE
+ -- Funções IFNULL e COALESCE
+ 
+Sintaxe: 
+ IFNULL ( coluna , substituição)
+ Exemplo: 
+	select concat('A quantidade adiquirida é','',ifnull(quantidade, 0)) from teste_nulos where item = 'Teclador';
+
+COALESCE
+Sintaxe: 
+	coalesce(valor1,valor2,..., valor N)
+	Essa função retornará o primeiro valor não-nulo encontrado em seus argumentos.
+
+Exemplo:
+	select concat('A quantidade adquirida é', '',coalesce(NULL,Quantidade,NULL,0) from teste_nulos where item = 'Teclador';
+
+_____________________________________________________________________________________________________________________________________________________
+OPERAÇÕES ARITMÉTICAS
+É possivel realizar operações matemáticas simples nos valores de uma coluna 
+e retornar resultados em uma coluna calculada para isso usamos os operadores matemáticos comuns:
+
++ Soma
+- Subtração
+/ Divisão 
+* Multiplicação
+% ou MOD módulo ou resto da divisão
+DIV Divisão inteira
+
+
+Exemplos:
+SELECT 3* 9
+
+
+SELECT Nome_Livro, Preco_livro * 5 AS 'Preço de 5 Unidades' FROM tbl_livro;
+SELECT 2*9/3;
+
+SELECT Nome_Livro, Preco_Livro/2 AS 'Preço com 50% de desconto' FROM tbl_Livro;
+
+SELECT 10 /3;
+SELECT 10 MOD 3; 
+
+
+FUNÇÕES MATEMATICA:
+É possivel também utilizar funções matemáticas de uma coluna 
+e retornar os resultados em uma coluna calculada.
+Abaixo vemos algumas funções matemáticas mais comuns:
+
+CEILING() Arredondar para cima
+FLOOR() Arredondar para baixo
+PI() Retorna o valor de PI
+POW(x,y) Retorna x elevado a y
+SQRT() Retorna a raiz quadrada de um argumento
+SIN() Retorna o seno de um numero dados em radianos
+HEX() Retornar a representação Hexadecimal de um valor decimal
+
+
+Exemplo: 
+	SELECT Nome_Livro, CEILING(Preco_Livro * 5 ) AS 'Preço Arredondado';
+
+
+_____________________________________________________________________________________________________________________________________________________
+FUNÇÕES E PROCEDIMENTOS: São dois tipos de de rotinas armazenadas, parte da especificação SQL.
+São um poucos similares, mas com aplicações diferentes. 
+São também invocadas de formas diferentes também (CALL x declaração)
+
+FUNÇÕES: Uma função é usada para (gerar)retornar um valor que pode ser usado em uma expressão.
+O valor é geralmente baseado em um ou mais paramentros fornecidos a função.
+É execuada como parte de uma expressão
+
+Sintaxe: 
+	CREATE FUNCTION nome_função (parametros)
+	RETURNS tipo_dados
+	codigo_da_função;
+Invocando uma função:
+	SELECT nome_função(passo os paramentros ) 
+Exemplo:
+	CREATE FUNCTION fn_teste(a DECIMAL(10,2), b INT)
+	RETURNS INT
+	RETURN a * b;
+Invocando:
+	SELECT fn_teste(2.5,4) as Resultado;
+
+EXCLUIR UMA FUNÇÃO
+	DROP FUNCTION fn_teste;
+
+
+_____________________________________________________________________________________________________________________________________________________
+PROCEDIMENTOS ARMAZENADOS 
+Stored Procedures 
+Um procedimento armazenado é uma sub-rotina disponível para aplicações 
+que acessam sistemas de banco de dados relacionais.
+Podem ser usadas para validação de dados controle de acesso, execução de 
+declarações SQL complexas e outras situações.
+Desde a versão 5.0 o MySql suporta a execução de Stored Procedures 
+
+Ciação do Procedimento:
+Sintaxe:
+	CREATE PROCEDURES Nome_procedure (Parâmetros)
+	declarações;
+
+Invocando o Procedimento:
+	CALL Nome_procedimento (Parâmetros)
+	
+Exemplo: 
+	CREATE PROCEDURES verPreco (varLivro smallint)
+	SELECT concat('O preço é ',Preco_livro) AS Preço
+	FROM tbl_livro
+	WHERE ID_Livro = varLivro;
+
+Invocando:
+	CALL verPreco(3);
+
+excluir procedimento:
+	DROP PROCEDURE nome_procedimento;
+
+_______________________________________________________________________
+BEGIN...END : EXECUTA VARIOS BLOCOS DE COMANDOS DE UMA VEZ
+São Contêiners usados para delimitar blocos de comandos 
+a serem executados pela FUNÇÃO ou STORED PROCEDURE
+Cada declaração aninhada possui um delimitador (;)
+Um bloco BEGIN pode ser aninhado dentro de outros blocos
+
+São pedaços de códigos que usamos para delimitar blocos de comandos;
+
+O delimitador ;(ponto e virgula) pode ser problemático pois ao ser encontrado em um procedimento ou função finaliza imediatamente;
+É uma especie de ALIAS para o comando GO.
+Devemos então midar esse atalho e para delimitar isso  usamos o comando DELIMITER para criar rotinas com declarações compostas;
+
+
+Exemplo: USANDO UMA FUNÇÃO:
+
+DELIMITER $$ 
+CREATE FUNCTION aument_preco (preco DECIMAL (10,2), taxa DECIMAL(10,2))
+
+BEGIN 
+RETURN preco + preco * taxa/100;
+END$$
+DELIMITER;
+
+Invocando a função para aumentar o preco em 10%:
+SELECT aumenta_preco(50.00, 10.00) AS Resultado;
+
+-- Exemplo: Criar Procedimento USANDO PROCEDIMENTO
+
+DELIMITER // 
+CREATE PROCEDURE verPreço(varLivro smallint)
+BEGIN
+SELEC CONCAT('O preço é ', Preco_livro) AS Preço
+FROM tbl_Livro
+WHERE ID_Livro = varLivro;
+SELECT 'Procedimento executado com sucesso!';
+END//
+DELIMITER; 
+
+-- Invocando Procedimento:
+CALL verPreço(3);
+
+____________________________________________________________________________________________________________________________________________________
+PARAMETROS EM STORED PROCEDURE
+Podemos usa paramentros para passar um argumento para o procedimento armazenado e obter vlores a partir dele
+Sintaxe: 
+	MODO nome_parametro tipo_paramentro(tamanho_paramentro)
+O modo pode ser IN, OUT INOUT dependendo do proposito do procedimento armazenado;
+
+IN  -- Não precisa declarar pois por padrão o procedimento ja assume o modo IN	
+    -- O argumento que eu utilizo para passar o parametro para o procedimento não é alterado 	
+	
+Exemplo:
+ 
+ -- Parametro IN	      -- MODO    NOME  TAMANHO --
+ DELIMITER //			
+ CREATE PROCEDURE editora_livros (IN   editora VARCHAR(50))
+ BEGIN
+	SELECT L.Nome_Livro, E.Nome_Editora
+	from tbl_livro AS L
+	INNER JOIN tbl_editoras AS E
+	ON L.ID_Editora = E.ID_Editora
+	WHERE E.Nome_Editora = editora;
+END//
+DELIMITER ; 
+ 
+call editora_livros('wiley');
+--Aqui estou criando uma vairável
+SET @minhaeditora = 'wiley';
+CALL editora_livros(@minhaeditora);
+
+
+
+
+
+OUT -- Preciso declarar
+    -- O argumento que eu utilizo para passar o parametro para o procedimento é alterado e é transformado em um valor nulo
+-- Exemplo OUT
+	O valor do parametro OUT livro sai e vai para dentro da variavel livro atraves do comando livro
+DELIMITER // 
+ CREATE PROCEDURE teste_out(IN id INT, OUT livro VARCHAR(50))
+ BEGIN
+	SELECT Nome_Livro
+    INTO livro
+    FROM tbl_livro
+    WHERE ID_Livro = id;
+END//
+DELIMITER ; 
+
+CALL teste_out(3, @livro);
+SELECT @livro	
+
+INOUT-- Precisa declarar	
+     -- O programa chamador ele tem que passar o argumento	
+     -- O procedimento armazenado ele modifica o  parametro INOUT
+     -- E rapassa o valor de volta ao programa chamador	
+     -- O paramentro passado tem seu valor alterado de acordo com  o resultado do seu processamento que pode ser reutilizado
+     -- É uma passgem por referencia			
+
+Exemplo INOUT;
+-- No exemplo a seguir, o valor da variavel que for passado 
+-- ao parâmetro "valor" será refletido na propria variavel 
+-- externa, a qual terá seu valor alterado também
+-- nesse procedimento foi passado um paramento INOUT e um parametro IN - nesse caso o paramentro IN não foi passado explicitamente por isso sabemos que passamos o parametro IN
+drop procedure aumento;
+DELIMITER //
+CREATE PROCEDURE aumento(INOUT valor DECIMAL(10,2), taxa DECIMAL(10,2))
+BEGIN 
+	SET valor = valor + valor * taxa/100;
+END //
+DELIMITER ;
+
+-- Testando: Criamos a variavel valorinicial, e ausamos 
+-- para passar o parâmetro valor. Vamos aumentar o valor em 15%
+
+SET @valorinicial = 20.00;
+SELECT @valorinicial;
+
+CALL aumento(@valorinicial, 15.00);
+-- verificamos agora se a variavel externa valorinicial foi alterada
+SELECT @valorinicial;
+
+_____________________________________________________________________________________________________________________________________________________TRIGGERS
+
+"Gatilho"
+-Associado a uma tabela 
+-Procedimento invocado quando uma comando DML e executado.
+
+Usos do trigger:
+
+- Verificação da integridade dos dados
+- Validação de dados
+- Rastreamento e registros de log de atividades nas tabelas.
+- Arquivamento de registros excluidos 
+
+- Um trigger é associado a uma tabela 
+- Armazenado no BD como um arquivo separado.
+- Não são chamados diretamente, são invocados automaticamente.
+
+
+SINTAXE dos Triggers:
+CREATE TRIGGER nome timing operação 
+ON tabela 
+FOR EACH ROW 
+declarações 
+
+timing = BEFORE | AFTER 
+operação = INSERT | UPDATE | DELETE 
+
+________________________________________________
+VARIAVEIS LOCAIS COMANDO DECLARE
+-- Exemplo com SELECT INTO ( O desconto será dado diretamente 
+-- em reais, não porcentagem; os comandos devem ser ajustados 
+-- para retornar apenas uma linha no SELECT... INTO):
+
+
+DELIMITER //
+CREATE FUNCTION calcula_desconto(livro INT , desconto DECIMAL (10,2))
+RETURNS DECIMAL (10,2)
+BEGIN
+	DECLARE preco DECIMAL (10,2); -- Na primeira instrução dentro do BEGIN vamos declarar a variavel com DECLARE que vai axiliar no calculo
+	SELECT Preco_Livro FROM tbl_Livro
+	WHERE ID_Livro = livro INTO preco; -- Aqui eu descubro o preço do livro dentro da tabela e jogo na variável
+    RETURN preco - desconto;
+END //
+DELIMITER ;
+
+DROP FUNCTION calcula_desconto;
+
+SELECT * FROM tbl_Livro;
+
+--  Testando com o Livro ID 4 de desconto de R$ 10,00:
+SELECT * FROM tbl_Livro WHERE ID_Livro = 4; 
+
+SELECT calcula_desconto(4,10.00);
+
+SELECT * FROM tbl_Livro WHERE ID_Livro = 4; -- Olhando dentro da tabela percebemos que o preço do livro não mudou, demos um desconto fora da tabela usando uma variável local
+
+______________________________________________________________________________________________
+BLOCOS CONDICIONAIS - IF THEN ELSE CASE
+-- Exemplo de Bloco If
+DELIMITER //
+CREATE FUNCTION calcula_imposto(salario DEC(8,2))
+RETURNS DEC (8,2)
+BEGIN 
+	DECLARE valor_imposto DEC(8,2);
+    IF salario < 1000 THEN 
+		SET valor_imposto = 0.0;
+	ELSEIF salario < 2000.0 THEN 
+		SET valor_imposto = salario * 0.15;
+	ELSEIF salario < 3000.0 THEN 
+		SET valor_imposto = salario * 0.22;
+	ELSE 
+		SET valor_imposto = salario * 0.27;
+	END IF;
+    RETURN valor_imposto;
+END //
+DELIMITER ;
+-- Vamos testar passando valores de salario como parâmentros .
+-- Usaremos valores como 850, 1200 e 6000 para testes:
+
+SELECT calcula_imposto(6000.00);
+
+______________________________________________________________________________________________________
+-- Exemplo do Bloco Case
+DELIMITER //
+CREATE FUNCTION calcula_imposto_case(salario DEC(8,2))
+RETURNS DEC(8,2)
+BEGIN 
+	DECLARE valor_imposto DEC(8,2);
+    CASE
+    WHEN salario < 1000 THEN 
+		SET valor_imposto = 0.0;
+	WHEN salario < 2000.0 THEN 
+		SET valor_imposto = salario * 0.15;
+	WHEN salario < 3000.0 THEN 
+		SET valor_imposto = salario * 0.22;
+	ELSE 
+		SET valor_imposto = salario * 0.27;
+	END CASE;
+    RETURN valor_imposto;
+END //
+DELIMITER ;
+
+-- Vamos testar passando valores de salario como parâmentros .
+-- Usaremos valores como 850, 1200 e 6000 para testes:
+
+SELECT calcula_imposto_case(6000.00);
+
+____________________________________________
+COMANDOS SHOW E DESCRIBE
+
+-- Comando Show
+SHOW DATABASES;
+USE db_biblioteca;
+SHOW TABLES;
+SHOW CREATE TABLE tbl_livro;
+SHOW CREATE PROCEDURE verpreco;
+SHOW CREATE FUNCTION calcula_desconto;
+SHOW COLUMNS FROM tbl_editoras;
+SHOW FULL COLUMNS FROM tbl_editoras;
+SHOW COLUMNS FROM tbl_livro LIKE 'I%';
+SHOW COLUMNS FROM tbl_livro WHERE Type LIKE 'varchar%';
+SHOW GRANTS FOR root@localhost; -- mostras os privilégios
+
+
+-- Comando Describe -- Não suporta o comando LIKE
+DESCRIBE tbl_livro; -- É igual a SHOW COLUMNS FROM tbl_livro;
+DESC tbl_livro;
+
+
+-- Comando MYSQLSHOW SÓ RODA NO TERMINAL
+
+MYSQLSHOW-u root -p -- Informações sobre os bancos de dados no terminal do linux
+MYSQLSHOW-u root -p db_biblioteca -- Informações sobre uma tabela
+MYSQLSHOW-u root -p db_biblioteca tbl_autores -- informações sobre os campos da tabela // Porém aqui tem um probela pois o shell interpreta como se a tbl_autores fosse um wildcard, colocando um simbolo de % no fim do comando 
+											  -- Assim forçamos o shell a interpretar o simbolo de % como um wildcard (caractere coringa) e a tabela tbl_autorres como uma tabela mesmo		
+MYSQLSHOW-u root -p db_biblioteca tbl_autores %
+
+MYSQLSHOW -vv -u root -p db_biblioteca 't*' -- contar as colunas e as linhas de cada tabela do banco
+MYSQLSHOW -u root -p db_biblioteca tbl_auores ID_autor -- consultar informações sobre determinado campo dentro da tabela
+
+____________________________________________________________________________
+-- COMANDO LOOP ESTRUTURA DE REPETIÇÃO 
+
+DELIMITER // 
+CREATE PROCEDURE acumula (limite INT)             -- Criando o procedimento armazenado
+BEGIN 				                  -- Iniciando o bloco begin end	
+	DECLARE contador INT DEFAULT 0;	          -- Declarando a variavel de contagem do loop	
+    DECLARE soma INT DEFAULT 0;		          -- Declarando a variavel de incremento do loop	
+    loop_teste: LOOP 				  -- Iniciando o Loop com o rótulo loop_teste	
+		SET contador = contador + 1;      -- Contador é incrementado	
+        SET soma = soma + contador;               -- Soma recebe contador
+        IF contador >= limite THEN                -- Contador e comparado com a Soma e então
+			LEAVE loop_teste;         -- LEAVE comando para sair do loop
+		END IF;			          -- Finalizo o IF	
+	END LOOP loop_teste;			  -- Finalizo o loop_teste 	
+    SELECT soma;				  -- Exibo a variavel soma incrementada 	
+END //
+DELIMITER ;
+
+-- Testando
+
+CALL acumula(10);				-- Para testa basta chamar a rotina do meu procedimento e passar algum valor de parametro que nesse caso tem que ser um INT
+
+
+
+______________________________________________________________________________________________________
+COMANDO REPITA
+
+DELIMITER //
+CREATE PROCEDURE acumula_repita(limite TINYINT UNSIGNED)
+BEGIN 
+	DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+        DECLARE soma INT DEFAULT 0;
+		REPEAT
+			SET contador = contador + 1;
+        		SET soma = soma + contador;
+			UNTIL contador >= limite
+    		END REPEAT;
+    SELECT SOMA;
+END//
+DELIMITER ;
+
+-- testando a estrutura REPITA
+CALL acumula_repita(10);
+CALL acumula_repita(0);-- Este resulta em valor errado, pois o contador
+-- é incrementado ANTES do teste condicional.
+______________________________________________________________________________________________________DROP PROCEDURE IF EXISTS acumula_repita;
+DELIMITER //
+CREATE PROCEDURE acumula_repita(limite TINYINT UNSIGNED)
+main: BEGIN
+           DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+           DECLARE soma INT DEFAULT 0;
+               IF limite < 1 THEN 
+	          SELECT 'O valor deve ser maior que Zero' AS Erro;
+                  LEAVE main;
+	       END IF;
+          REPEAT 
+	    SET contador = contador +1;
+            SET soma = soma + contador;
+	    UNTIL contador >= limite
+        END REPEAT;
+        SELECT soma;
+END//
+DELIMITER ;
+
+-- testando a estrutura REPITA:
+CALL acumula_repita(10);
+CALL acumula_repita(0);-- Agora o erro é reportado
+
+_____________________________________________________________________________________________________
+COMNDO WHILE
+
+DELIMITER //
+CREATE PROCEDURE acumula_while(limite TINYINT UNSIGNED)
+BEGIN
+	DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+    DECLARE soma INT DEFAULT 0;
+    WHILE contado < limite DO
+		SET contador = contador + 1;
+        SET soma = soma + contador;
+	END WHILE;
+    SELECT soma;
+END
+
+DELIMITER ;
+
+
+-- Testando 
+
+CALL acumula_while(10);
+CALL acumula_while(0); -- Na estrutura while não teremos o erro, pois o teste lógico é feito no inicio
+______________________________________________________________________________________________________
+COMANDO ITERATE  - Usado para parar a execução de varios comandos dentro de um bloco repetitivo e voltar para o inicio e começar a repetição novamente do inicio sem sair do loop, assim conseguimos escolher quais comandos serão executados e quais não serão executados dentro do loop de acordo com os nossos critérios e condições 
+DELIMITER //
+CREATE PROCEDURE acumula_iterate (limite TINYINT UNSIGNED)
+BEGIN 
+	DECLARE contador TINYINT UNSIGNED DEFAULT 0;
+    DECLARE soma INT UNSIGNED DEFAULT 0;
+    teste: LOOP 
+		SET contador = contador + 1;
+        SET soma = soma + contador;
+        IF contador < limite THEN
+			ITERATE teste;
+		END IF; 
+        LEAVE teste;
+	END LOOP teste;
+    SELECT soma;
+END
+
+DELIMITER ;
+
+-- Testando
+CALL acumula_iterate(10);
+CALL acumula_iterate(0); -- Erro pois a variavel contador é incrementada no inicio
+
+______________________________________________________________________________________________________
+COMANDO ITERATE COM WHILE
+DELIMITER //
+CREATE PROCEDURE pares(limite TINYINT UNSIGNED)
+main: BEGIN 
+	DECLARE contador TINYINT DEFAULT 0;
+    meuloop: WHILE contador < limite DO
+		SET contador = contador + 1;
+		IF MOD(contador, 2) THEN  -- Se o resto da divisão for 1 verdadeiro é impar ai executa                                           o iterate e volta  -- Se for par o resultado será 0 então é                                           falso ai o IF pula o iterate e cai no select 
+			ITERATE meuloop;
+		END IF;
+		SELECT CONCAT(contador, 'é um numero par' ) AS valor;
+	END WHILE;    
+END //
+
+-- Testando pares 
+CALL pares (20);
+_____________________________________________________
+CREATE TABLE produto1(
+	idProduto INT NOT NULL AUTO_INCREMENT,
+    Nome_Produto VARCHAR (45) NULL,
+    Preco_Normal DECIMAL (10,2) NULL,
+    Preco_Desconto DECIMAL (10,2) NULL,
+    PRIMARY KEY (idProduto));
+    
+    
+-- CRIANDO TRIGGER:
+
+CREATE TRIGGER tr_desconto1 BEFORE INSERT 
+ON produto1 
+FOR EACH ROW
+SET NEW.Preco_Desconto = (NEW.Preco_Normal * 0.90); -- Tanto Preço desconto quanto preço normal não existe então eu uso new para dizer pegue o novo preço_norma e crie New Preço Desconto
+													-- New é porque é um produto novo
+INSERT INTO produto1 (Nome_Produto, Preco_Normal )
+VALUES ('DVD', 1.00),('PRENDRIVE',18.00);
+
+SELECT * FROM produto1;
+_______________________________________________________________________________
+usuários do sistema:
+
+-- Consultar usuários do sistema
+select User from mysql.user;
+
+-- Descobrir atraves de qual host os usuário podem se conectar
+select User, Host from mysql.user;
+
+-- Criar usuários
+-- CREATE USER usuario@host IDENTIFIED BY 'senha';
+CREATE USER marciano@host IDENTIFIED BY '1234';
+select User from mysql.user;
+select User, Host from mysql.user;
+
+--  Criar Usuário que pode se conectar de qualque máquina
+CREATE USER marciano2 IDENTIFIED BY '1234';
+select User from mysql.user;
+select User, Host from mysql.user;
+
+-- Criar usuário sem definir a senha
+CREATE USER marciano3@host;
+select User from mysql.user;
+select User, Host from mysql.user;
+
+-- Configurar uma senha para o usuário
+SET PASSWORD FOR 'marciano3'@'host' = PASSWORD('1234');
+
+-- Renomer um usário
+RENAME USER marciano3@host TO marciano4@host;
+
+-- Excluir um usário
+DROP USER marciano4@host;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

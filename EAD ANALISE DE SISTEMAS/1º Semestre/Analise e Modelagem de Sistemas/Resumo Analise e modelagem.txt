@@ -1,0 +1,167 @@
+**Ciencia da computação se preocupa com a teoria 
+**Engenharia de software se preocupa com questões tecnicas
+**Engenharia de sistemas foca todos os aspectos do desenvolvimento e a evolução de sistemas complexos em que o software tem o papel pricipal
+
+**Engenharia de Software:
+Apoia o Desenvolvimento profissional de software com Tecnicas:
+Especificação- Projeto - Evoluçãao de Programa;
+
+**Aspectos da engenharia de software:
+Gerenciamento de projeto de software;
+desenvolvimento de ferramentas metodos e teorias;
+
+**Tipos de Produtos de Software:
+Produtos Genericos;
+Produtos sob encomenda;
+
+
+**Atributos de todo bom Software:
+Manutenibilidade;
+Confiança e Proteção;
+Eficiência;
+Aceitabilidade;
+
+**Processo de software (abordagem sistematica produção de software)
+Especificação de software;
+Desenvolvimento de software;
+Validação de software;
+Evolução de software;
+
+
+**Aspectos gerais que afetam vários tipos diferentes de software:
+Heterogeneidade;
+Mudança de negócio e social;
+Segurança e confiança;
+
+Aplicações existentes no mundo:
+Aplicações stand-alone;
+Aplicações interativas baseadas em transações;
+Sistemas de controle embutidos;
+Sistemas de processamento de lotes;
+Sistemas de entretenimento;
+Sistemas para modelagem e simulação;
+Sistemas de coleta de dados;
+Sistemas de sistemas;
+
+
+**Fundamentos de engenharia de software que se aplicam a todos os tipos de sistemas de software: 
+1-Processo, 2-Confiança, 3-Requisitos, 4-Gerenciamento 5-Reúso:
+1 Desenvolvidos em um processo gerenciado e compreendido;
+2 Confiança e desempenho são importantes para todos;
+3 Entender e gerenciar a especificação e os requisitos SW FAZER;
+4 Você deve fazer o melhor uso possível dos recursos existentes
+
+
+**Engenharia de software e a Internet:
+No início, a Internet era basicamente um armazenamento de informações;
+Por volta do ano 2000, a Internet começou a evoluir;
+Isso significa que sistemas Web poderiam ser desenvolvidos e acessados por um navegador;
+Consequentemente, sempre que possível, muitos negócios mudaram para interação Web com os sistemas de software da empresa.
+O próximo estágio no desenvolvimento de sistemas Web foi a noção de web services componentes de software acessados pela Internet
+
+______________________________________________________________________
+
+Processo de software
+Todos processos de software devem incluir 4 Atividades Fundamentais:
+
+I- Especificação de software: Definição e especificação são intercaladas;
+Atividades principais: Estudo de viabilidade/ Elicitação e análise de requisitos/ Especificação de requisitos/A validação de requisitos.
+Requisitos podem ser incluídos: Requisitos do usuário/ Requisitos de sistema;
+
+II-Projeto e implementação de software(desenvolvimento): conversão de uma especificação do sistema em um sistema executável.
+Atividades: Projeto de arquitetura - Projeto de interface - Projeto de componente - Projeto de banco de dados;
+Envolve processos de projeto e programação de software se for usada uma abordagem incremental para o desenvolvimento, também pode envolver o refinamento da especificação do software;
+Desenvolvimento de forma iterativa atividades do processo são intercaladas;
+III- Validação de software: Genericamente: verificação e validação:
+Mostrar que um software se adequa a suas especificações ao mesmo tempo que satisfaz as especificações do cliente;
+Pode envolver processos de verificação, como inspeções e revisões,
+em cada estágio do processo de software do sistema;
+Os estágios do processo de teste são:
+*Testes de desenvolvimento: Componente testado de forma independente;
+*Testes de sistema: Componentes do sistema são integrados para criar um sistema completo;
+*Testes de aceitação ou teste alpha: Esse é o estágio final do processo de testes, antes que o sistema seja aceito para uso operacional;
+*Teste beta: Este teste envolve a entrega de um sistema a um número de potenciais clientes que concordaram em usá-lo;
+Quando um processo de software dirigido a planos o teste é impulsionado por um conjunto de planos de testes;
+
+**Evolução de software:(manutenção de software)
+Pensar na engenharia de software em um processo evolutivo;
+Subatividades: validação de requisitos, projeto de arquitetura, testes unitários etc;
+Atividades apoio ao processo:
+Documentação e gerenciamento de configuração de software;
+
+Catergorias de Processos
+Às vezes, são categorizados como:
+--Abordagem Dirigidos a planos:Tudo Planejados com antecedencia o   progresso das atividades são avaliados comparandose ao inicial;
+--Abordagem dirigidas a Processos ágeis: Planejamento gradativo   alterado comfome necessidade dos clientes;
+
+
+Mdelos de processos de software
+--Modelo em cascata - Sequencial
+Atividades:Usa as atividades fundamentais 
+Representação diferente: especificação de requisitos, projeto de software, implementação, teste;
+***Detalhes:
+-Análise e definição de requisitos: Consultas aos usuarios em seguida  definidas os detalhes que funiconam como especificação do sistema;
+-Projeto de sistema e software:
+ Aloca os requisitos tanto para sistemas de hardware como para  sistemas de software, por meio da definição de uma arquitetura geral  do sistema;
+-Implementação e teste unitário:
+ O projeto do software é desenvolvido como um conjunto de programas ou  unidades de programa. O teste unitário envolve a verificação de que  cada unidade atenda a sua especificação;
+
+-Integração e teste de sistema:
+ As unidades individuais do programa ou programas são integradas e  testadas como um sistema completo para assegurar que os requisitos do  software tenham sido atendidos;
+
+-Operação e manutenção:
+ O sistema é instalado e colocado em uso. A manutenção envolve a  correção de erros que não foram
+ descobertos em estágios iniciais do ciclo de vida
+
+**Variação do modelo cascata - Modelo Formal**
+ Em que se cria um modelo matemático de uma especificação do sistema
+ Eles exigem conhecimentos especializados.
+ A abordagem formal simplifica a produção de casos de segurança ou  proteção;
+
+
+
+--Modelo Desenvolvimento incremental: intercalada (geralmente   movemo-nos passo a passo em direção a uma solução) mais barato e   mais fácil fazer mudanças;
+Atividades: Intercala as atividades de especificação, desenvolvimento   e validação com rápido feedback entre todas as atividades
+  Detalhes: 
+O sistema é desenvolvido como uma série de versões (incrementos)   deia de desenvolver uma implementação inicial, expô-la aos
+comentários dos usuários e continuar por meio da criação de várias versões até que um sistema adequado seja desenvolvido
+
+03 vantagens importantes quando comparado ao modelo em cascata:
+1)O custo de acomodar as mudanças nos requisitos do cliente é reduzido;
+2)É mais fácil obter feedback dos clientes sobre o desenvolvimento que foi feito.
+3)É possível obter entrega e implementação rápida de um software útil ao cliente, mesmo se toda a funcionalidade não for incluída.
+
+Tem tres problemas do ponto de vista gerencial:
+*O processo não é visível;
+**A estrutura do sistema tende a se degradar com a adição dos novos   incrementos;
+***São particularmente críticos para os sistemas de vida-longa;
+
+
+--Modelo de Engenharia de software orientada a reúso:
+Ativiades:As fundamentais mais atividades diferentes;
+Atividades diferentes adicionais: Análise de componentes, Modificação de requisitos, Projeto do sistema com reúso, Desenvolvimento e integração;
+Componentes de software que podem ser usados: Web services - framework - Sistemas de software stand-alone;
+Concentra-se na integração desses componentes em um sistema já existente em vez de desenvolver um sistema a partir do zero.
+Detalhes:
+Abordagens orientadas a reúso dependem de uma ampla base de componentes reusáveis de software e de um framework de integração para a composição desses componentes.
+Esses componentes são sistemas completos (COTS ou de prateleira);
+
+
+Lidando com mudanças
+2duas) abordagens que podem ser adotadas para a redução de custos de retrabalho:
+1uma) Prevenção de mudanças: Por exemplo, um protótipo de sistema pode ser desenvolvido para mostrar algumas características-chave do sistema para os clientes;
+2duas) Tolerância a mudanças o processo foi projetado para que as mudanças possam ser acomodadas a um custo relativamente baixo;
+
+---Prototipação de sistema: em que uma versão do sistema ou de parte dele é desenvolvida rapidamente para verificar as necessidades do cliente e a viabilidade de algumas decisões de projeto;
+
+---Entrega incremental:em que incrementos do sistema são entregues aos clientes para comentários e experimentação.
+Protótipo de software pode ser usado:No processo de engenharia de requisitos, um protótipo pode ajudar na elicitação e validação de requisitos de sistema.
+**No processo de projeto de sistema, um protótipo pode ser usado para estudar soluções específicas do software e para apoiar o projeto de interface de usuário.
+
+
+
+
+
+
+
+

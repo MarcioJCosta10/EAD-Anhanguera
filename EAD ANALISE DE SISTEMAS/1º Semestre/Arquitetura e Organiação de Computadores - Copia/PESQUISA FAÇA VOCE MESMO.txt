@@ -1,0 +1,72 @@
+UNIDADE LÓGICA E ARITMETICA
+A função efetiva deste dispositivo é a execução das instruções dos programas que se encontram armazenadas na memória. Ao chegarem à UCP, essas instruções são interpretadas e traduzidas em operações matemáticas a serem executadas pela ULA.
+Podemos dizer que a ULA é um aglomerado de circuitos lógicos e
+componentes eletrônicos simples que, integrados, realizam as operações aritméticas e lógicas. São exemplos de operações executadas pela ULA: soma, multiplicação, operações lógicas (AND, OR, NOT, XOR, entre outras), incremento, decremento e operação de complemento.
+
+UNIDADE DE CONTROLE
+
+Conforme apresentado no início desta aula, a Unidade Central de
+Processamento (UCP) é responsável pelo processamento e execução
+de programas armazenados na memória principal, sendo que a ULA é o
+elemento da UCP responsável pela execução das operações solicitadas. Dessa forma, a Unidade Funcional de Controle é responsável pela realização das seguintes atividades (MONTEIRO, 2007):
+a) busca da instrução que será executada, armazenando-a em um registrador da UCP;
+b) interpretação das instruções a fim de saber quais operações deverão ser
+executadas pela ULA (ex.: soma, subtração, comparação) e como realizá-las;
+c) geração de sinais de controle apropriados para a ativação das atividades
+necessárias à execução propriamente dita da instrução identificada. Esses
+sinais de controle são enviados aos diversos componentes do sistema,
+sejam eles internos à UCP (ex.: a ULA) ou externos (ex.: memória e dispo-
+sitivos de entrada e saída).
+
+A ULA é uma pequena parte do circuito integrado da CPU, utilizada em pequenos sistemas, ou pode compreender um considerável conjunto de componentes lógicos de alta velocidade. De acordo com Monteiro (2007), isso pode ser constatado em processadores mais modernos, os quais utilizam em sua arquitetura mais de uma ULA, de modo a tornar a execução das instruções mais rápida. Por exemplo: os processadores Pentium possuem três ULAs, duas delas para processamento de números inteiros e a terceira para
+números fracionários, conforme apresenta a Figura 5.3.
+
+MEMORIA PRINCIPAL
+
+É um tipo de memória indispensável para o funcionamento do computador, à qual o processador pode fazer acesso direto. 
+Além de alocar os dados e instruções de programas a serem manipulados pelo processador, esse tipo de memória dá acesso às memórias secundárias, de forma a disponibilizar dados ao processador.
+A memória principal é denominada memória RAM (Random Access Me-
+mory), corresponde a um tipo de memória volátil, ou seja, seu conteúdo  fica armazenado enquanto o computador estiver ligado (energizado); ao desligar a corrente elétrica, o conteúdo da memória RAM é apagado. 
+Esse é o motivo pelo qual muitas pessoas perdem arquivos que estão utilizando quando ocorrem fatos como, por exemplo, alguém esbarrar no cabo ligado à tomada de energia elétrica ou mesmo cessar o fornecimento de energia. 
+Isso acontece porque ao ocorrerem tais fatos, o arquivo ainda não havia sido salvo em algum tipo de memória permanente (ex.: o disco do computador). A Figura 4.3 apresenta um pente (módulo) de memória RAM típico.
+
+ACC
+São elementos de armazenamento temporário, localizados na UCP, os
+quais são extremamente rápidos por causa da sua tecnologia de fabricação (conforme apresentado na Aula 4). Assim, as UCPs são fabricadas com certa quantidade de registradores destinados ao armazenamento de dados que estão sendo utilizados durante o processamento e, portanto, servem de memória auxiliar básica da ULA. A quantidade e o emprego dos registradores variam bastante de modelo para modelo de processador. Devido à sua tecnologia de construção e por estarem localizados no interior da UCP, são muito caros e, por isso, disponíveis em quantidade limitada.
+Os sistemas mais antigos possuíam um registrador especial chamado
+acumulador ou ACC (de accumulator), o qual, além de armazenar dados, servia de elemento de ligação entre a ULA e os demais dispositivos da UCP (MONTEIRO, 2007). Nos computadores mais simples é encontrado apenas um acumulador, conforme apresentado na Figura 5.2. Em arquiteturas mais complexas, vários registradores 
+podem desempenhar as funções de um acumulador, além de haver diversos registradores de dados de uso geral. Outro fator importante relacionado aos registradores é o tamanho da palavra,
+a qual está vinculada ao projeto de fabricação da UCP, correspondendo ao tamanho dos elementos ligados à área de processamento, a ULA e os registradores de dados. A capacidade de processamento de uma UCP, ou seja, sua velocidade, é bastante influenciada pelo tamanho da palavra. Atualmente há computadores referenciados como tendo uma arquitetura de 32 bits ou uma arquitetura de 64 bits, o que corresponde ao tamanho de sua palavra.
+
+
+
+RDM
+O RDM, também chamado de MBR (Memory Buffer Register), é um
+registrador que armazena temporariamente dados (conteúdo de uma ou
+mais células) que estão sendo transferidos da memória principal para a UCP (em uma operação de leitura) ou da UCP para a memória principal (em uma operação de escrita). Em seguida, o referido dado é reencaminhado para outro elemento da UCP para processamento ou para uma célula da memória principal, se for um resultado de um processamento. A quantidade de bits que pode ser armazenada no RDM é a mesma quantidade suportada pelo barramento de dados. O REM, também chamado de MAR (Memory Address Register), é um
+registrador que armazena temporariamente o endereço de acesso a uma posição de memória, necessário ao se iniciar uma operação de leitura ou de escrita. Em seguida, o referido endereço é encaminhado à controladora da memória, principal identificação e localização da célula desejada. Permite armazenar a mesma quantidade de bits do barramento de endereço. 
+
+CI
+Este registrador é também denominado de Program Counter (PC) ou
+contador de programa. De acordo com Tanenbaum (2007), é o CI cujo valor aponta para a próxima instrução a ser buscada da memória a ser executada no processador. De acordo com Monteiro (2007), tão logo a instrução que vai ser executada seja buscada da memória principal para a CPU, o sistema automaticamente efetiva a modificação do conteúdo do CI de modo que ele passe a armazenar o endereço da próxima instrução na sequência. Assim, o CI é um registrador crucial para o processo de controle e de Sequenciamento da execução dos programas.
+
+RI
+Este registrador tem a função de armazenar a instrução a ser executada pela UCP. 
+Ao se iniciar um ciclo de instrução (MONTEIRO, 2007), a UC emite sinais de controle em sequência no tempo, de modo que se processe a realização de um ciclo de leitura para buscar a instrução na memória. Ao final do ciclo de leitura a instrução desejada será armazenada no RI, via barramento de dados e RDM. A Figura 5.5 mostra o RI ligado diretamente ao decodificador de instruções, o qual irá interpretar a instrução e avisar à Unidade de Controle (UC).
+Esses registradores têm como função controlar a execução das instruções e os demais componentes da UCP. Dispositivo que possui a lógica necessária para realizar a movimentação de dados e de instruções da/para a CPU, através de sinais de controle que emite em instantes de tempo programados. 
+Os sinais de controle ocorrem em vários instantes durante o período de re-alização de um ciclo de instrução e, de modo geral, todos possuem uma duração fixa e igual, originada em um gerador de sinais denominado relógio (clock).
+
+DECODIFICADOR DE INSTRUÇÕES
+Cada instrução é uma ordem para que a UCP realize uma determinada
+operação. Como são muitas instruções, é necessário que cada uma possua uma identificação própria e única, e é função do decodificador de instrução identificar que operação será realizada, correlacionada à instrução cujo código de operação foi decodificado. Assim, o RI irá passar ao decodificador uma sequência de bits representando uma instrução a ser executada.
+Um decodificador possui 2n saídas, sendo n a quantidade de algarismos binários do valor de entrada. A Figura 5.5 mostra um diagrama em blocos do processo de decodificação na UCP, no qual o RI passa um código de instrução ao decodificador de tamanho de 4 bits, que é decodificado (interpretado) e encaminhado à UC para que ela emita os sinais de controle para os demais elementos da UCP.
+O componente decodificador foi incorporado à UCP com o advento das
+máquinas CISC (Complex Instruction Set Computer) e trata-se de uma
+categoria de arquitetura de processadores que favorece um conjunto simples e pequeno de instruções de máquinas. Uma instrução de máquina é uma operação básica que o hardware realiza diretamente. Este assunto será discutido em mais detalhes nas seções subsequentes.
+
+
+CLOCK
+Monteiro (2007) define este dispositivo como um gerador de pulsos, cuja duração é chamada de ciclo, e a quantidade de vezes que esse pulso básico se repete em um segundo define a unidade de medida do relógio, denominada frequência, a qual também é usada para definir a velocidade na CPU. 
+A unidade de medida utilizada para a frequência do relógio da UCP é o hertz (Hz), que significa um ciclo por segundo.
+
+

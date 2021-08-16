@@ -1,0 +1,111 @@
+Meu banco de dados é de uma loja de sucos e salgados.
+Possui três tabelas: Clientes, Produtos e a de Vendas.
+
+Ele se aplica para realizar o controle das vendas e dos cadastros dos clientes.
+
+
+--Aqui vou criar o banco de dados
+
+Create database if not exists db_LojadoSuco;
+Use db_LojadoSuco;
+
+--Aqui vou criar a tabela de Clientes
+
+CREATE TABLE if not exists tb_clientes (
+cdCliente int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+nmCliente varchar(50) NOT NULL,
+dtNascimento date DEFAULT NULL,
+inSexo varchar(1) NOT NULL,
+nmEndereco varchar(50) DEFAULT NULL,
+nmCidade varchar(50) DEFAULT NULL,
+nmEstado varchar(30) DEFAULT NULL,
+nmTelefone1 varchar(15) DEFAULT NULL,
+nmTelefone2 varchar(15) DEFAULT NULL,
+FK_Venda_Cliente int () NOT NULL
+);
+
+--Aqui vou criar a tabela de Produtos
+
+CREATE TABLE if not exists tb_dadosprodutos(
+cdProduto int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nmProduto varchar(50) NOT NULL,
+vlProduto decimal(6,2) NOT NULL
+);
+
+--Aqui vou criar a tabela de vendas
+
+CREATE TABLE if not exists tb_vendas (
+cdVenda int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+cdProduto int(11) NOT NULL,
+vlProduto decimal(6,2) NOT NULL,
+FK_Produto_Venda INT(11)NOT NULL
+);
+
+--Aqui vou inserir a chave estrangeira na tabela de vendas
+
+ALTER TABLE tb_vendas
+ADD FOREIGN KEY (FK_Produto_Venda)
+REFERENCES tb_dadosprodutos(cdProduto);
+
+--Aqui vou inserir a chave estrangeira na tabela de clientes
+
+ALTER TABLE tb_clientes
+ADD FOREIGN KEY (FK_Venda_Cliente)
+REFERENCES tb_vendas (cdVenda);
+
+--Aqui vou inseri dados na tabela de clientes
+
+Insert into tb_clientes(nmCliente,dtNascimento,inSexo,nmEndereco,nmCidade,nmEstado,nmTelefone1,nmTelefone2)
+values
+('Jose','1984-05-05','M','Estrada Morro','Cotia','SP','11998565477','11998565455'),
+('Ana','1974-06-05','F','Rua Zica','Cotia','SP','11994564477','11998456455');
+
+--Aqui vou inserir dados na tabela de produtos
+
+Insert into tb_dadosprodutos(nmProduto, vlProduto)
+values
+('Suco de Manga','3.00'),
+('Suco de Laranja','4.00'),
+('Coxinha','5.00');
+
+--Aqui vou inserir dados na tabela de vendas
+
+Insert into tb_vendas (cdProduto,vlProduto)values('1','3.00'),('2','4.00'),('3','5.00');
+
+-- Aqui vou selecionar todos os cliente ordenados por nome
+
+select * from tb_clientes
+order by nmCliente;
+
+-- Aqui vou selecionar todos os clientes  ordenados de forma descendete por nome
+
+select * from tb_clientes
+order by nmCliente desc;
+
+-- Aqui vou selecionar todos os nomes dos clientes começando com a letra A
+
+select * from tb_clientes
+where nmCliente like 'A%'
+
+-- Aqui vou selecionar e contar todas as vendas
+
+select count(*) from tb_vendas;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

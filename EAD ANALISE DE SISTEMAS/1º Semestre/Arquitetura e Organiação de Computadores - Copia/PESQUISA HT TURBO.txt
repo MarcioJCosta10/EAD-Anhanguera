@@ -1,0 +1,19 @@
+Tecnologia Intel Hyper-Threading
+
+Em uma época em que os processadores de múltiplos núcleos estão dominando, a Intel decidiu criar modelos que pudessem simular uma quantia ainda maior de núcleos. Se você for analisar que os CPUs da linha Core i3 possuem apenas dois núcleos, pode imaginar que eles não durem muito mais. Contudo, com a utilização da Intel Hyper-Threading, os processadores i3 “ganham” dois núcleos a mais.
+
+Quem já possui um Intel Core i3 deve ter reparado que o Windows detecta quatro núcleos, contudo esse artifício da duplicação dos núcleos não significa muito. E quem pensou que o i3 realmente trabalharia como um processador de quatro núcleos se enganou completamente. Para perceber a diferença entre um processador de quatro núcleos e outro de dois, basta comparar os resultados em desempenho.
+
+Por exemplo, se você colocar um Core i3 ao lado de um Intel QuadCore, não há dúvidas de que o QuadCore terá um desempenho muito maior (em qualquer atividade). Claro que isso não significa que a nova tecnologia não serve para nada, muito pelo contrário. A Intel Hyper-Threading é ideal para momentos em que você precisa efetuar várias atividades simultaneamente. Essa tecnologia serve para que um núcleo consiga realizar duas atividades ao mesmo tempo, daí o motivo pelo qual a tecnologia, supostamente, faz os núcleos dobrarem em quantidade.
+
+O que é e para que serve a tecnologia Turbo Boost?
+
+A tecnologia Turbo Boost da Intel promete aumentar a velocidade do processador automaticamente. Segundo o site da Intel, esta tecnologia é inteligente e trabalha 100% do tempo verificando frequência, voltagem e temperatura do processador. Ao notar uma baixa em um dos valores-padrão utilizados pelo CPU, este novo recurso aumenta a frequência e consegue um desempenho muito maior em qualquer aplicação.
+
+Imagine que a temperatura do processador está abaixo do esperado e você deseja aumentar a velocidade. Com a utilização da tecnologia Turbo Boost você não precisa se preocupar, porque o seu Intel Core i5 vai alterar a frequência ou a voltagem do CPU sem sua permissão e logo você verá um aumento significativo em desempenho. Falando especificamente dos modelos i5, há a possibilidade de um aumento de até 800 MHz na velocidade. Caso você tenha interesse no assunto, pode conferir o artigo que o Baixaki criou sobre o Intel Turbo Boost.
+
+Intel HD Boost? Para que serve?
+
+Com o avanço constante dos processadores, os softwares foram forçados a evoluir. Existem softwares que trabalham com conjuntos de instruções específicas, as quais precisam estar presentes nos processadores para que o programa seja executado com a máxima performance. Os conjuntos de instruções principais são denominados como SSE, sendo que existem programas que utilizam instruções diferentes.
+
+A linha de processadores Intel Core i7 trabalha com a tecnologia Intel HD Boost, a qual é responsável pela compatibilidade entre CPU e programas que usam os conjuntos de instruções SSE4. Tal característica possibilita um maior desempenho em aplicativos mais robustos que necessitam de um poder de processamento de alto nível.
